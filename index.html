@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archio — Versteh jedes Dokument</title>
+  <meta name="description" content="Archio scannt Verträge, Rechnungen, Arztbriefe und Behördenpost und erklärt dir mit KI in einfacher Sprache, was wirklich drinsteht. Mit Fristen-Erinnerungen, Chat, Vergleich und Cloud-Backup." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0F1115;
+      --surface: #171A21;
+      --surface-raised: #1F232C;
+      --accent: #4F9EF8;
+      --accent-soft: #74B2FF;
+      --accent-deep: #2C7BE5;
+      --text: #EDF1F8;
+      --muted: #97A0B3;
+      --faint: #626B7D;
+      --hairline: #272C36;
+      --display: 'Space Grotesk', system-ui, sans-serif;
+      --body: 'Inter', system-ui, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    a { color: inherit; text-decoration: none; }
+
+    /* Header */
+    header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 28px 0;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; font-family: var(--display); font-weight: 700; font-size: 22px; letter-spacing: -.5px; }
+    .mark { width: 38px; height: 38px; }
+    nav a { color: var(--muted); margin-left: 28px; font-size: 15px; transition: color .2s; }
+    nav a:hover { color: var(--accent); }
+
+    /* Hero */
+    .hero { position: relative; text-align: center; padding: 80px 0 100px; }
+    .hero::before {
+      content: ''; position: absolute; top: -120px; left: 50%; transform: translateX(-50%);
+      width: 560px; height: 560px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(79,158,248,0.16), transparent 65%);
+      pointer-events: none;
+    }
+    .kicker { color: var(--accent-soft); letter-spacing: 3px; text-transform: uppercase; font-size: 13px; font-weight: 600; }
+    .hero h1 {
+      font-family: var(--display); font-weight: 700; font-size: clamp(44px, 8vw, 84px);
+      line-height: 1.04; margin: 18px 0 22px; letter-spacing: -1.5px;
+    }
+    .hero h1 .accent { color: var(--accent); }
+    .hero p { color: var(--muted); font-size: clamp(17px, 2.4vw, 21px); max-width: 620px; margin: 0 auto 40px; }
+    .cta { display: inline-flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 15px 30px; border-radius: 999px; font-weight: 600; font-size: 16px;
+      transition: transform .15s, opacity .15s, box-shadow .15s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--accent); color: #08111F; box-shadow: 0 8px 30px rgba(79,158,248,0.25); }
+    .btn-ghost { background: var(--surface); color: var(--accent); border: 1px solid var(--hairline); }
+
+    /* Sections */
+    section { padding: 70px 0; }
+    .section-label { color: var(--accent-soft); letter-spacing: 2px; text-transform: uppercase; font-size: 13px; font-weight: 600; text-align: center; }
+    .section-title { font-family: var(--display); font-weight: 600; font-size: clamp(30px, 5vw, 46px); text-align: center; margin: 10px 0 50px; letter-spacing: -1px; }
+
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .card {
+      background: var(--surface); border: 1px solid var(--hairline); border-radius: 24px; padding: 32px;
+      transition: border-color .2s, transform .2s;
+    }
+    .card:hover { border-color: var(--accent-deep); transform: translateY(-4px); }
+    .card .ic { width: 52px; height: 52px; border-radius: 14px; background: var(--surface-raised); display: flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 18px; }
+    .card h3 { font-family: var(--display); font-weight: 600; font-size: 21px; margin-bottom: 8px; letter-spacing: -.3px; }
+    .card p { color: var(--muted); font-size: 15px; }
+
+    /* Steps */
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 28px; max-width: 900px; margin: 0 auto; }
+    .step { text-align: center; }
+    .step .num { font-family: var(--display); font-weight: 700; font-size: 18px; width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--accent-deep); color: var(--accent); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+    .step h3 { font-family: var(--display); font-weight: 600; font-size: 19px; margin-bottom: 6px; }
+    .step p { color: var(--muted); font-size: 15px; }
+
+    /* Pricing */
+    .pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; max-width: 720px; margin: 0 auto; }
+    .price-card { background: var(--surface); border: 1px solid var(--hairline); border-radius: 24px; padding: 36px; }
+    .price-card.featured { border-color: var(--accent); background: linear-gradient(180deg, rgba(79,158,248,0.10), var(--surface)); }
+    .price-card .plan { font-family: var(--display); font-size: 24px; font-weight: 600; }
+    .price-card .amount { font-family: var(--display); font-size: 44px; font-weight: 700; color: var(--accent); margin: 12px 0 4px; }
+    .price-card .per { color: var(--faint); font-size: 14px; }
+    .price-card ul { list-style: none; margin: 24px 0 0; }
+    .price-card li { padding: 9px 0; color: var(--muted); font-size: 15px; display: flex; gap: 10px; }
+    .price-card li::before { content: '✓'; color: var(--accent); font-weight: 700; }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--hairline); padding: 40px 0; text-align: center; color: var(--faint); font-size: 14px; }
+    footer a { color: var(--muted); margin: 0 12px; }
+    footer a:hover { color: var(--accent); }
+    .foot-brand { font-family: var(--display); font-weight: 600; color: var(--text); margin-bottom: 12px; font-size: 18px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <svg class="mark" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="100" height="100" rx="24" fill="#171A21"/>
+          <rect x="30" y="22" width="40" height="52" rx="6" stroke="#4F9EF8" stroke-width="6"/>
+          <path d="M39 40h22M39 50h22M39 60h14" stroke="#4F9EF8" stroke-width="5" stroke-linecap="round"/>
+          <circle cx="64" cy="64" r="15" fill="#171A21" stroke="#4F9EF8" stroke-width="6"/>
+          <path d="M75 75l9 9" stroke="#4F9EF8" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        Archio
+      </div>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#how">So geht's</a>
+        <a href="#preise">Preise</a>
+        <a href="#download">Download</a>
+      </nav>
+    </header>
+  </div>
+
+  <div class="wrap">
+    <div class="hero">
+      <div class="kicker">Dein intelligentes Dokumenten-Archiv</div>
+      <h1>Versteh <span class="accent">jedes Dokument.</span></h1>
+      <p>Verträge, Rechnungen, Arztbriefe, Behördenpost — Archio scannt dein Dokument und erklärt dir mit KI in einfacher Sprache, was wirklich drinsteht. Kein Juristendeutsch mehr.</p>
+      <div class="cta" id="download">
+        <a class="btn btn-primary" href="#">Google Play</a>
+        <a class="btn btn-ghost" href="#">App Store</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section id="features">
+      <div class="section-label">Was drin ist</div>
+      <h2 class="section-title">Alles für deinen Papierkram</h2>
+      <div class="features">
+        <div class="card"><div class="ic">📷</div><h3>Dokumente scannen</h3><p>Fotografiere Verträge, Rechnungen, Arztbriefe und Behördenpost mit der Kamera — oder wähle sie aus der Galerie.</p></div>
+        <div class="card"><div class="ic">🤖</div><h3>KI erklärt alles</h3><p>Die KI liest dein Dokument und erklärt in einfacher Sprache, was es ist, was wichtig ist und was du tun musst.</p></div>
+        <div class="card"><div class="ic">⏰</div><h3>Fristen &amp; Erinnerungen</h3><p>Archio erkennt Fristen und Termine automatisch und erinnert dich rechtzeitig — keine Deadline mehr verpasst.</p></div>
+        <div class="card"><div class="ic">💬</div><h3>Chat mit Dokument</h3><p>Stell deinem Dokument einfach Fragen. „Wann kann ich kündigen?" — und du bekommst eine klare Antwort.</p></div>
+        <div class="card"><div class="ic">🔍</div><h3>Dokumente vergleichen</h3><p>Lass zwei Dokumente gegenüberstellen: Unterschiede, Gemeinsamkeiten und eine klare Empfehlung.</p></div>
+        <div class="card"><div class="ic">🗂️</div><h3>Archiv &amp; Projekte</h3><p>Sortiere Dokumente in Projekte, filtere nach Typ und finde alles in Sekunden über die Suche.</p></div>
+        <div class="card"><div class="ic">☁️</div><h3>Cloud-Backup</h3><p>Mit kostenlosem Konto sicherst du deine Dokumente in der Cloud — beim Gerätewechsel geht nichts verloren.</p></div>
+        <div class="card"><div class="ic">🔊</div><h3>Vorlesen</h3><p>Lass dir die Erklärung deines Dokuments einfach vorlesen — praktisch unterwegs oder bei langen Texten.</p></div>
+        <div class="card"><div class="ic">📄</div><h3>PDF-Export &amp; Teilen</h3><p>Exportiere Dokumente und Erklärungen als PDF und teile sie mit einem Tipp per Mail oder Messenger.</p></div>
+        <div class="card"><div class="ic">🏆</div><h3>Statistiken &amp; Badges</h3><p>Behalte den Überblick über dein Archiv und sammle Abzeichen für Meilensteine.</p></div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="section-label">So geht's</div>
+      <h2 class="section-title">In drei Schritten erklärt</h2>
+      <div class="steps">
+        <div class="step"><div class="num">1</div><h3>Scannen</h3><p>Dokument fotografieren oder aus der Galerie wählen.</p></div>
+        <div class="step"><div class="num">2</div><h3>Verstehen</h3><p>Die KI erklärt in Sekunden, was drinsteht und was zu tun ist.</p></div>
+        <div class="step"><div class="num">3</div><h3>Archivieren</h3><p>Ablegen, Fristen setzen, nachfragen — alles an einem Ort.</p></div>
+      </div>
+    </section>
+
+    <section id="preise">
+      <div class="section-label">Preise</div>
+      <h2 class="section-title">Fang gratis an</h2>
+      <div class="pricing">
+        <div class="price-card">
+          <div class="plan">Free</div>
+          <div class="amount">0 €</div>
+          <div class="per">für immer</div>
+          <ul>
+            <li>55 Dokumente pro Monat gratis analysieren</li>
+            <li>Scannen, Archiv &amp; Projekte</li>
+            <li>Fristen-Erinnerungen</li>
+            <li>Cloud-Backup mit Konto</li>
+          </ul>
+        </div>
+        <div class="price-card featured">
+          <div class="plan">Pro</div>
+          <div class="amount">3,99 €</div>
+          <div class="per">pro Monat — jederzeit kündbar</div>
+          <ul>
+            <li>Unbegrenzte KI-Analysen</li>
+            <li>Chat mit Dokumenten ohne Limit</li>
+            <li>Dokumente vergleichen</li>
+            <li>PDF-Export</li>
+            <li>Vorlesen &amp; Vorlagen</li>
+            <li>Alle künftigen Pro-Features</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-brand">Archio</div>
+      <div>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="agb.html">AGB</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="konto-loeschen.html">Konto löschen</a>
+      </div>
+      <p style="margin-top:16px">© 2026 Archio. Mit ♥ gebaut.</p>
+    </div>
+  </footer>
+</body>
+</html>
