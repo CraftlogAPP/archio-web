@@ -14,21 +14,34 @@
   strong { color:#EDF1F8; }
   .note { background:#171A21; border:1px solid #272C36; border-radius:12px; padding:16px; font-size:14px; color:#97A0B3; margin:24px 0; }
   .muted { color:#626B7D; font-size:14px; }
-  .back { display:inline-flex; align-items:center; gap:8px; color:#97A0B3; font-size:14px; margin-bottom:40px; text-decoration:none; transition:color .2s; }
+  .topbar { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:40px; }
+  .back { display:inline-flex; align-items:center; gap:8px; color:#97A0B3; font-size:14px; text-decoration:none; transition:color .2s; }
   .back:hover { color:#4F9EF8; }
   .back svg { width:16px; height:16px; }
+  .lang-switch { display:inline-flex; border:1px solid #272C36; border-radius:999px; overflow:hidden; }
+  .lang-switch button { background:transparent; color:#97A0B3; border:0; padding:5px 12px; font-family:inherit; font-size:13px; font-weight:600; cursor:pointer; transition:background .2s,color .2s; }
+  .lang-switch button:hover { color:#4F9EF8; }
+  .lang-switch button.active { background:#4F9EF8; color:#08111F; }
+  .binding { font-size:13px; color:#626B7D; font-style:italic; margin-top:6px; }
 </style>
 </head>
 <body>
-<a class="back" href="index.html">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-  Zurück zur Startseite
-</a>
-<h1>Datenschutzerklärung</h1>
-<p class="muted">Stand: Juni 2026</p>
+<div class="topbar">
+  <a class="back" href="index.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    <span data-i18n="back">Zurück zur Startseite</span>
+  </a>
+  <span class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang="de">DE</button>
+    <button type="button" data-lang="en">EN</button>
+  </span>
+</div>
+<h1 data-i18n="h1">Datenschutzerklärung</h1>
+<p class="muted" data-i18n="date">Stand: Juni 2026</p>
+<p class="binding" data-i18n="binding"></p>
 
-<h2>1. Verantwortlicher</h2>
-<p>
+<h2 data-i18n="s1.h">1. Verantwortlicher</h2>
+<p data-i18n="s1.p">
 Alexander Pfalz<br>
 Hofsatz 29<br>
 7082 Donnerskirchen<br>
@@ -36,53 +49,124 @@ Hofsatz 29<br>
 E-Mail: <a href="mailto:2easy4trash@gmail.com">2easy4trash@gmail.com</a>
 </p>
 
-<h2>2. Überblick</h2>
-<p>Archio ist eine App, mit der du Dokumente (z.&nbsp;B. Verträge, Rechnungen, Arztbriefe, Behördenpost) scannst und dir von einer KI in einfacher Sprache erklären lässt. Wir verarbeiten dabei nur die Daten, die für diese Funktionen nötig sind. Diese Erklärung beschreibt, welche Daten das sind, wozu und auf welcher Rechtsgrundlage wir sie verarbeiten.</p>
+<h2 data-i18n="s2.h">2. Überblick</h2>
+<p data-i18n="s2.p">Archio ist eine App, mit der du Dokumente (z.&nbsp;B. Verträge, Rechnungen, Arztbriefe, Behördenpost) scannst und dir von einer KI in einfacher Sprache erklären lässt. Wir verarbeiten dabei nur die Daten, die für diese Funktionen nötig sind. Diese Erklärung beschreibt, welche Daten das sind, wozu und auf welcher Rechtsgrundlage wir sie verarbeiten.</p>
 
-<h2>3. Nutzung ohne Konto</h2>
-<p>Du kannst Archio auch <strong>ohne Konto</strong> nutzen. In diesem Fall werden deine Dokumente und Analysen <strong>lokal auf deinem Gerät</strong> gespeichert. Für die KI-Analyse werden die jeweiligen Dokumentinhalte jedoch – wie unter Punkt&nbsp;5 beschrieben – zur Verarbeitung an unseren Server und den KI-Dienst übermittelt.</p>
+<h2 data-i18n="s3.h">3. Nutzung ohne Konto</h2>
+<p data-i18n="s3.p">Du kannst Archio auch <strong>ohne Konto</strong> nutzen. In diesem Fall werden deine Dokumente und Analysen <strong>lokal auf deinem Gerät</strong> gespeichert. Für die KI-Analyse werden die jeweiligen Dokumentinhalte jedoch – wie unter Punkt&nbsp;5 beschrieben – zur Verarbeitung an unseren Server und den KI-Dienst übermittelt.</p>
 
-<h2>4. Konto &amp; Cloud-Backup</h2>
-<p>Wenn du ein <strong>Konto</strong> erstellst, sicherst du deine Dokumente in der Cloud, damit sie beim Gerätewechsel erhalten bleiben. Dabei verarbeiten wir:</p>
+<h2 data-i18n="s4.h">4. Konto &amp; Cloud-Backup</h2>
+<p data-i18n="s4.p1">Wenn du ein <strong>Konto</strong> erstellst, sicherst du deine Dokumente in der Cloud, damit sie beim Gerätewechsel erhalten bleiben. Dabei verarbeiten wir:</p>
 <ul>
-  <li><strong>E-Mail-Adresse</strong> und ein verschlüsseltes Passwort (zur Anmeldung)</li>
-  <li>Deine <strong>Dokumente, Bilder, KI-Analysen, Notizen und Projekte</strong>, die du in der App anlegst</li>
-  <li>Technische Daten wie Zeitpunkt der letzten Synchronisierung</li>
+  <li data-i18n="s4.l1"><strong>E-Mail-Adresse</strong> und ein verschlüsseltes Passwort (zur Anmeldung)</li>
+  <li data-i18n="s4.l2">Deine <strong>Dokumente, Bilder, KI-Analysen, Notizen und Projekte</strong>, die du in der App anlegst</li>
+  <li data-i18n="s4.l3">Technische Daten wie Zeitpunkt der letzten Synchronisierung</li>
 </ul>
-<p>Diese Daten werden für dich gespeichert, damit du sie geräteübergreifend abrufen kannst. Rechtsgrundlage ist die Erfüllung des Nutzungsvertrags (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO).</p>
-<p><strong>Auftragsverarbeiter Hosting/Datenbank:</strong> Für Konten, Authentifizierung und Cloud-Speicherung nutzen wir <strong>Supabase</strong> (Supabase Inc.). Mit dem Anbieter besteht ein Auftragsverarbeitungsvertrag. Soweit dabei Daten außerhalb der EU/des EWR verarbeitet werden, erfolgt dies auf Grundlage geeigneter Garantien (EU-Standardvertragsklauseln, Art.&nbsp;46 DSGVO).</p>
+<p data-i18n="s4.p2">Diese Daten werden für dich gespeichert, damit du sie geräteübergreifend abrufen kannst. Rechtsgrundlage ist die Erfüllung des Nutzungsvertrags (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO).</p>
+<p data-i18n="s4.p3"><strong>Auftragsverarbeiter Hosting/Datenbank:</strong> Für Konten, Authentifizierung und Cloud-Speicherung nutzen wir <strong>Supabase</strong> (Supabase Inc.). Mit dem Anbieter besteht ein Auftragsverarbeitungsvertrag. Soweit dabei Daten außerhalb der EU/des EWR verarbeitet werden, erfolgt dies auf Grundlage geeigneter Garantien (EU-Standardvertragsklauseln, Art.&nbsp;46 DSGVO).</p>
 
-<h2>5. KI-Analyse deiner Dokumente</h2>
-<p>Kern von Archio ist die automatische Erklärung von Dokumenten. Wenn du eine Analyse, einen Vergleich oder den Chat startest, werden der <strong>Inhalt des Dokuments</strong> (Bild und/oder daraus erkannter Text) sowie deine Chat-Fragen an unseren Server und von dort an einen <strong>KI-Dienst</strong> übermittelt, der daraus die Erklärung erzeugt.</p>
+<h2 data-i18n="s5.h">5. KI-Analyse deiner Dokumente</h2>
+<p data-i18n="s5.p1">Kern von Archio ist die automatische Erklärung von Dokumenten. Wenn du eine Analyse, einen Vergleich oder den Chat startest, werden der <strong>Inhalt des Dokuments</strong> (Bild und/oder daraus erkannter Text) sowie deine Chat-Fragen an unseren Server und von dort an einen <strong>KI-Dienst</strong> übermittelt, der daraus die Erklärung erzeugt.</p>
 <ul>
-  <li><strong>Eingesetzter KI-Dienst:</strong> Anthropic (Claude API), Anthropic PBC, USA.</li>
-  <li>Die Übermittlung erfolgt verschlüsselt und ausschließlich zum Zweck der Analyse.</li>
-  <li>Nach Auskunft des Anbieters werden über die API übermittelte Inhalte nicht zum Training der Modelle verwendet.</li>
-  <li>Bei der Übermittlung in die USA stützen wir uns auf geeignete Garantien (EU-Standardvertragsklauseln).</li>
+  <li data-i18n="s5.l1"><strong>Eingesetzter KI-Dienst:</strong> Anthropic (Claude API), Anthropic PBC, USA.</li>
+  <li data-i18n="s5.l2">Die Übermittlung erfolgt verschlüsselt und ausschließlich zum Zweck der Analyse.</li>
+  <li data-i18n="s5.l3">Nach Auskunft des Anbieters werden über die API übermittelte Inhalte nicht zum Training der Modelle verwendet.</li>
+  <li data-i18n="s5.l4">Bei der Übermittlung in die USA stützen wir uns auf geeignete Garantien (EU-Standardvertragsklauseln).</li>
 </ul>
-<p>Rechtsgrundlage ist die Erfüllung des Vertrags bzw. dein ausdrücklicher Wunsch, das Dokument analysieren zu lassen (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO). <strong>Bitte beachte:</strong> Lade keine Inhalte hoch, die du nicht an einen externen KI-Dienst übermitteln möchtest.</p>
-<div class="note">Hinweis zu besonderen Daten: Dokumente wie Arztbriefe können Gesundheitsdaten (Art.&nbsp;9 DSGVO) enthalten. Diese werden nur verarbeitet, weil und soweit du das jeweilige Dokument bewusst zur Analyse einreichst (Einwilligung, Art.&nbsp;9 Abs.&nbsp;2 lit.&nbsp;a DSGVO).</div>
+<p data-i18n="s5.p2">Rechtsgrundlage ist die Erfüllung des Vertrags bzw. dein ausdrücklicher Wunsch, das Dokument analysieren zu lassen (Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO). <strong>Bitte beachte:</strong> Lade keine Inhalte hoch, die du nicht an einen externen KI-Dienst übermitteln möchtest.</p>
+<div class="note" data-i18n="s5.note">Hinweis zu besonderen Daten: Dokumente wie Arztbriefe können Gesundheitsdaten (Art.&nbsp;9 DSGVO) enthalten. Diese werden nur verarbeitet, weil und soweit du das jeweilige Dokument bewusst zur Analyse einreichst (Einwilligung, Art.&nbsp;9 Abs.&nbsp;2 lit.&nbsp;a DSGVO).</div>
 
-<h2>6. Geräteberechtigungen</h2>
-<p>Die App fragt bei Bedarf folgende Berechtigungen ab:</p>
+<h2 data-i18n="s6.h">6. Geräteberechtigungen</h2>
+<p data-i18n="s6.p1">Die App fragt bei Bedarf folgende Berechtigungen ab:</p>
 <ul>
-  <li><strong>Kamera</strong> – zum Fotografieren von Dokumenten</li>
-  <li><strong>Fotos/Galerie</strong> – zum Importieren vorhandener Dokumentbilder</li>
-  <li><strong>Mitteilungen</strong> – für Fristen- und Termin-Erinnerungen</li>
+  <li data-i18n="s6.l1"><strong>Kamera</strong> – zum Fotografieren von Dokumenten</li>
+  <li data-i18n="s6.l2"><strong>Fotos/Galerie</strong> – zum Importieren vorhandener Dokumentbilder</li>
+  <li data-i18n="s6.l3"><strong>Mitteilungen</strong> – für Fristen- und Termin-Erinnerungen</li>
 </ul>
-<p>Du kannst diese Berechtigungen jederzeit in den Geräteeinstellungen widerrufen.</p>
+<p data-i18n="s6.p2">Du kannst diese Berechtigungen jederzeit in den Geräteeinstellungen widerrufen.</p>
 
-<h2>7. In-App-Käufe / Abonnement</h2>
-<p>Das optionale <strong>Pro</strong>-Abonnement wird über den <strong>Google Play Store</strong> bzw. <strong>Apple App Store</strong> abgewickelt. Der jeweilige Anbieter verarbeitet die Zahlungsdaten in eigener Verantwortung. Wir erhalten lediglich Informationen über den Kaufstatus, nicht deine Zahlungsdaten.</p>
+<h2 data-i18n="s7.h">7. In-App-Käufe / Abonnement</h2>
+<p data-i18n="s7.p">Das optionale <strong>Pro</strong>-Abonnement wird über den <strong>Google Play Store</strong> bzw. <strong>Apple App Store</strong> abgewickelt. Der jeweilige Anbieter verarbeitet die Zahlungsdaten in eigener Verantwortung. Wir erhalten lediglich Informationen über den Kaufstatus, nicht deine Zahlungsdaten.</p>
 
-<h2>8. Speicherdauer</h2>
-<p>Daten in deinem Konto speichern wir, solange dein Konto besteht. Wenn du dein Konto oder einzelne Dokumente löschst, werden die zugehörigen Daten gelöscht (siehe <a href="konto-loeschen.html">Konto &amp; Daten löschen</a>). An den KI-Dienst übermittelte Inhalte werden dort nur kurzzeitig zur Verarbeitung vorgehalten.</p>
+<h2 data-i18n="s8.h">8. Speicherdauer</h2>
+<p data-i18n="s8.p">Daten in deinem Konto speichern wir, solange dein Konto besteht. Wenn du dein Konto oder einzelne Dokumente löschst, werden die zugehörigen Daten gelöscht (siehe <a href="konto-loeschen.html">Konto &amp; Daten löschen</a>). An den KI-Dienst übermittelte Inhalte werden dort nur kurzzeitig zur Verarbeitung vorgehalten.</p>
 
-<h2>9. Deine Rechte</h2>
-<p>Nach der DSGVO hast du das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch sowie das Recht, eine Einwilligung zu widerrufen. Du kannst Dokumente und dein Konto jederzeit in der App löschen oder uns unter <a href="mailto:2easy4trash@gmail.com">2easy4trash@gmail.com</a> kontaktieren.</p>
-<p>Du hast außerdem das Recht, dich bei der österreichischen Datenschutzbehörde (<a href="https://www.dsb.gv.at">dsb.gv.at</a>) zu beschweren.</p>
+<h2 data-i18n="s9.h">9. Deine Rechte</h2>
+<p data-i18n="s9.p1">Nach der DSGVO hast du das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch sowie das Recht, eine Einwilligung zu widerrufen. Du kannst Dokumente und dein Konto jederzeit in der App löschen oder uns unter <a href="mailto:2easy4trash@gmail.com">2easy4trash@gmail.com</a> kontaktieren.</p>
+<p data-i18n="s9.p2">Du hast außerdem das Recht, dich bei der österreichischen Datenschutzbehörde (<a href="https://www.dsb.gv.at">dsb.gv.at</a>) zu beschweren.</p>
 
-<h2>10. Änderungen</h2>
-<p>Wir können diese Erklärung anpassen, wenn sich die App ändert. Die jeweils aktuelle Fassung findest du hier.</p>
+<h2 data-i18n="s10.h">10. Änderungen</h2>
+<p data-i18n="s10.p">Wir können diese Erklärung anpassen, wenn sich die App ändert. Die jeweils aktuelle Fassung findest du hier.</p>
+
+<script>
+var I18N = {
+  en: {
+    'doc.title': 'Privacy Policy — Archio',
+    'back': 'Back to home',
+    'h1': 'Privacy Policy',
+    'date': 'Last updated: June 2026',
+    'binding': 'This English version is a courtesy translation. In case of doubt, the German version is legally binding.',
+    's1.h': '1. Controller',
+    's1.p': 'Alexander Pfalz<br>Hofsatz 29<br>7082 Donnerskirchen<br>Austria<br>Email: <a href="mailto:2easy4trash@gmail.com">2easy4trash@gmail.com</a>',
+    's2.h': '2. Overview',
+    's2.p': 'Archio is an app that lets you scan documents (e.g. contracts, invoices, medical letters, official mail) and have an AI explain them in plain language. We only process the data required for these functions. This policy describes what data that is, for what purpose and on what legal basis we process it.',
+    's3.h': '3. Use without an account',
+    's3.p': 'You can use Archio <strong>without an account</strong>. In that case your documents and analyses are stored <strong>locally on your device</strong>. For the AI analysis, however, the relevant document contents are transmitted to our server and the AI service for processing – as described in section&nbsp;5.',
+    's4.h': '4. Account &amp; cloud backup',
+    's4.p1': 'If you create an <strong>account</strong>, you back up your documents to the cloud so they are retained when you switch devices. In doing so we process:',
+    's4.l1': '<strong>Email address</strong> and an encrypted password (for sign-in)',
+    's4.l2': 'Your <strong>documents, images, AI analyses, notes and projects</strong> that you create in the App',
+    's4.l3': 'Technical data such as the time of the last synchronisation',
+    's4.p2': 'This data is stored for you so that you can access it across devices. The legal basis is the performance of the user agreement (Art.&nbsp;6(1)(b) GDPR).',
+    's4.p3': '<strong>Processor for hosting/database:</strong> For accounts, authentication and cloud storage we use <strong>Supabase</strong> (Supabase Inc.). A data processing agreement is in place with the provider. Where data is processed outside the EU/EEA, this is done on the basis of appropriate safeguards (EU Standard Contractual Clauses, Art.&nbsp;46 GDPR).',
+    's5.h': '5. AI analysis of your documents',
+    's5.p1': 'The core of Archio is the automatic explanation of documents. When you start an analysis, a comparison or the chat, the <strong>content of the document</strong> (image and/or text recognised from it) as well as your chat questions are transmitted to our server and from there to an <strong>AI service</strong> that generates the explanation.',
+    's5.l1': '<strong>AI service used:</strong> Anthropic (Claude API), Anthropic PBC, USA.',
+    's5.l2': 'Transmission is encrypted and solely for the purpose of the analysis.',
+    's5.l3': 'According to the provider, content transmitted via the API is not used to train the models.',
+    's5.l4': 'For transmission to the USA we rely on appropriate safeguards (EU Standard Contractual Clauses).',
+    's5.p2': 'The legal basis is the performance of the contract or your explicit wish to have the document analysed (Art.&nbsp;6(1)(b) GDPR). <strong>Please note:</strong> do not upload content that you do not wish to transmit to an external AI service.',
+    's5.note': 'Note on special category data: documents such as medical letters may contain health data (Art.&nbsp;9 GDPR). This is only processed because and insofar as you deliberately submit the respective document for analysis (consent, Art.&nbsp;9(2)(a) GDPR).',
+    's6.h': '6. Device permissions',
+    's6.p1': 'The App requests the following permissions where needed:',
+    's6.l1': '<strong>Camera</strong> – to photograph documents',
+    's6.l2': '<strong>Photos/gallery</strong> – to import existing document images',
+    's6.l3': '<strong>Notifications</strong> – for deadline and appointment reminders',
+    's6.p2': 'You can revoke these permissions at any time in your device settings.',
+    's7.h': '7. In-app purchases / subscription',
+    's7.p': 'The optional <strong>Pro</strong> subscription is processed via the <strong>Google Play Store</strong> or <strong>Apple App Store</strong>. The respective provider processes the payment data under its own responsibility. We only receive information about the purchase status, not your payment data.',
+    's8.h': '8. Retention period',
+    's8.p': 'We store data in your account for as long as your account exists. If you delete your account or individual documents, the associated data is deleted (see <a href="konto-loeschen.html">Delete account &amp; data</a>). Content transmitted to the AI service is held there only briefly for processing.',
+    's9.h': '9. Your rights',
+    's9.p1': 'Under the GDPR you have the right to access, rectification, erasure, restriction of processing, data portability and objection, as well as the right to withdraw consent. You can delete documents and your account in the App at any time or contact us at <a href="mailto:2easy4trash@gmail.com">2easy4trash@gmail.com</a>.',
+    's9.p2': 'You also have the right to lodge a complaint with the Austrian Data Protection Authority (<a href="https://www.dsb.gv.at">dsb.gv.at</a>).',
+    's10.h': '10. Changes',
+    's10.p': 'We may update this policy if the App changes. The current version is always available here.'
+  }
+};
+(function () {
+  var btns = document.querySelectorAll('.lang-switch button');
+  var nodes = document.querySelectorAll('[data-i18n]');
+  var de = { 'doc.title': document.title };
+  nodes.forEach(function (el) { de[el.getAttribute('data-i18n')] = el.innerHTML; });
+  I18N.de = de;
+  function apply(lang) {
+    var dict = I18N[lang] || I18N.de;
+    document.documentElement.lang = lang;
+    nodes.forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    if (dict['doc.title']) document.title = dict['doc.title'];
+    btns.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang') === lang); });
+    try { localStorage.setItem('archio-lang', lang); } catch (e) {}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('archio-lang'); } catch (e) {}
+  var initial = saved || ((navigator.language || 'de').toLowerCase().indexOf('de') === 0 ? 'de' : 'en');
+  btns.forEach(function (b) { b.addEventListener('click', function () { apply(b.getAttribute('data-lang')); }); });
+  apply(initial);
+})();
+</script>
 </body>
 </html>

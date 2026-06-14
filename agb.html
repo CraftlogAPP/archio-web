@@ -13,50 +13,120 @@
   strong { color:#EDF1F8; }
   .note { background:#171A21; border:1px solid #272C36; border-radius:12px; padding:16px; font-size:14px; color:#97A0B3; margin:24px 0; }
   .muted { color:#626B7D; font-size:14px; }
-  .back { display:inline-flex; align-items:center; gap:8px; color:#97A0B3; font-size:14px; margin-bottom:40px; text-decoration:none; transition:color .2s; }
+  .topbar { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:40px; }
+  .back { display:inline-flex; align-items:center; gap:8px; color:#97A0B3; font-size:14px; text-decoration:none; transition:color .2s; }
   .back:hover { color:#4F9EF8; }
   .back svg { width:16px; height:16px; }
+  .lang-switch { display:inline-flex; border:1px solid #272C36; border-radius:999px; overflow:hidden; }
+  .lang-switch button { background:transparent; color:#97A0B3; border:0; padding:5px 12px; font-family:inherit; font-size:13px; font-weight:600; cursor:pointer; transition:background .2s,color .2s; }
+  .lang-switch button:hover { color:#4F9EF8; }
+  .lang-switch button.active { background:#4F9EF8; color:#08111F; }
+  .binding { font-size:13px; color:#626B7D; font-style:italic; margin-top:6px; }
 </style>
 </head>
 <body>
-<a class="back" href="index.html">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-  Zurück zur Startseite
-</a>
-<h1>Allgemeine Geschäftsbedingungen</h1>
-<p class="muted">Stand: Juni 2026</p>
+<div class="topbar">
+  <a class="back" href="index.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    <span data-i18n="back">Zurück zur Startseite</span>
+  </a>
+  <span class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang="de">DE</button>
+    <button type="button" data-lang="en">EN</button>
+  </span>
+</div>
+<h1 data-i18n="h1">Allgemeine Geschäftsbedingungen</h1>
+<p class="muted" data-i18n="date">Stand: Juni 2026</p>
+<p class="binding" data-i18n="binding"></p>
 
-<h2>1. Geltungsbereich</h2>
-<p>Diese AGB gelten für die Nutzung der App „Archio" (nachfolgend „App"), angeboten von Alexander Pfalz (nachfolgend „Anbieter").</p>
+<h2 data-i18n="s1.h">1. Geltungsbereich</h2>
+<p data-i18n="s1.p">Diese AGB gelten für die Nutzung der App „Archio" (nachfolgend „App"), angeboten von Alexander Pfalz (nachfolgend „Anbieter").</p>
 
-<h2>2. Leistungen</h2>
-<p>Archio ist eine App zum Scannen, Archivieren und KI-gestützten Erklären von Dokumenten. Die Basisfunktionen sind kostenlos. Über ein optionales „Pro"-Abonnement werden zusätzliche Funktionen (u.&nbsp;a. unbegrenzte KI-Analysen, Vergleich, PDF-Export) freigeschaltet.</p>
+<h2 data-i18n="s2.h">2. Leistungen</h2>
+<p data-i18n="s2.p">Archio ist eine App zum Scannen, Archivieren und KI-gestützten Erklären von Dokumenten. Die Basisfunktionen sind kostenlos. Über ein optionales „Pro"-Abonnement werden zusätzliche Funktionen (u.&nbsp;a. unbegrenzte KI-Analysen, Vergleich, PDF-Export) freigeschaltet.</p>
 
-<h2>3. KI-gestützte Inhalte</h2>
-<p>Die von der App erzeugten Erklärungen, Zusammenfassungen und Vergleiche werden automatisiert durch ein KI-System erstellt. Sie dienen der Orientierung und stellen <strong>keine Rechts-, Steuer- oder medizinische Beratung</strong> dar. Für verbindliche Auskünfte wende dich an eine entsprechend qualifizierte Fachperson. Der Anbieter übernimmt keine Gewähr für die Richtigkeit oder Vollständigkeit der KI-Ergebnisse.</p>
+<h2 data-i18n="s3.h">3. KI-gestützte Inhalte</h2>
+<p data-i18n="s3.p">Die von der App erzeugten Erklärungen, Zusammenfassungen und Vergleiche werden automatisiert durch ein KI-System erstellt. Sie dienen der Orientierung und stellen <strong>keine Rechts-, Steuer- oder medizinische Beratung</strong> dar. Für verbindliche Auskünfte wende dich an eine entsprechend qualifizierte Fachperson. Der Anbieter übernimmt keine Gewähr für die Richtigkeit oder Vollständigkeit der KI-Ergebnisse.</p>
 
-<h2>4. Konto</h2>
-<p>Für die Cloud-Sicherung kannst du ein kostenloses Konto anlegen. Du bist für die Geheimhaltung deiner Zugangsdaten verantwortlich. Du kannst dein Konto jederzeit löschen (siehe <a href="konto-loeschen.html">Konto &amp; Daten löschen</a>).</p>
+<h2 data-i18n="s4.h">4. Konto</h2>
+<p data-i18n="s4.p">Für die Cloud-Sicherung kannst du ein kostenloses Konto anlegen. Du bist für die Geheimhaltung deiner Zugangsdaten verantwortlich. Du kannst dein Konto jederzeit löschen (siehe <a href="konto-loeschen.html">Konto &amp; Daten löschen</a>).</p>
 
-<h2>5. Abonnement, Preise, Verlängerung</h2>
-<p>Das Pro-Abo ist als Monats- oder Jahresabo erhältlich. Die jeweils gültigen Preise werden vor dem Kauf im Play Store / App Store angezeigt. Das Abo verlängert sich automatisch um die gewählte Laufzeit, sofern es nicht rechtzeitig gekündigt wird. Kauf, Abrechnung und Verlängerung erfolgen über dein Google- bzw. Apple-Konto.</p>
+<h2 data-i18n="s5.h">5. Abonnement, Preise, Verlängerung</h2>
+<p data-i18n="s5.p">Das Pro-Abo ist als Monats- oder Jahresabo erhältlich. Die jeweils gültigen Preise werden vor dem Kauf im Play Store / App Store angezeigt. Das Abo verlängert sich automatisch um die gewählte Laufzeit, sofern es nicht rechtzeitig gekündigt wird. Kauf, Abrechnung und Verlängerung erfolgen über dein Google- bzw. Apple-Konto.</p>
 
-<h2>6. Kündigung</h2>
-<p>Du kannst das Abo jederzeit in den Einstellungen deines Google- bzw. Apple-Kontos kündigen. Die Kündigung wird zum Ende des laufenden Abrechnungszeitraums wirksam.</p>
+<h2 data-i18n="s6.h">6. Kündigung</h2>
+<p data-i18n="s6.p">Du kannst das Abo jederzeit in den Einstellungen deines Google- bzw. Apple-Kontos kündigen. Die Kündigung wird zum Ende des laufenden Abrechnungszeitraums wirksam.</p>
 
-<h2>7. Widerrufsrecht</h2>
-<p>Für digitale Inhalte gelten die gesetzlichen Bestimmungen. Die Abwicklung von Rückerstattungen richtet sich nach den Richtlinien des jeweiligen App-Stores.</p>
+<h2 data-i18n="s7.h">7. Widerrufsrecht</h2>
+<p data-i18n="s7.p">Für digitale Inhalte gelten die gesetzlichen Bestimmungen. Die Abwicklung von Rückerstattungen richtet sich nach den Richtlinien des jeweiligen App-Stores.</p>
 
-<h2>8. Pflichten der Nutzer</h2>
-<p>Du sicherst zu, nur Dokumente einzureichen, zu deren Verarbeitung du berechtigt bist. Da zur Analyse Inhalte an einen externen KI-Dienst übermittelt werden, lade keine Inhalte hoch, die du dafür nicht freigeben möchtest.</p>
+<h2 data-i18n="s8.h">8. Pflichten der Nutzer</h2>
+<p data-i18n="s8.p">Du sicherst zu, nur Dokumente einzureichen, zu deren Verarbeitung du berechtigt bist. Da zur Analyse Inhalte an einen externen KI-Dienst übermittelt werden, lade keine Inhalte hoch, die du dafür nicht freigeben möchtest.</p>
 
-<h2>9. Haftung</h2>
-<p>Der Anbieter haftet nach den gesetzlichen Bestimmungen. Für Datenverlust durch Geräteausfall, Deinstallation oder Zurücksetzen der App wird keine Haftung übernommen, soweit gesetzlich zulässig.</p>
+<h2 data-i18n="s9.h">9. Haftung</h2>
+<p data-i18n="s9.p">Der Anbieter haftet nach den gesetzlichen Bestimmungen. Für Datenverlust durch Geräteausfall, Deinstallation oder Zurücksetzen der App wird keine Haftung übernommen, soweit gesetzlich zulässig.</p>
 
-<h2>10. Änderungen</h2>
-<p>Der Anbieter kann diese AGB anpassen. Über wesentliche Änderungen wird in geeigneter Form informiert.</p>
+<h2 data-i18n="s10.h">10. Änderungen</h2>
+<p data-i18n="s10.p">Der Anbieter kann diese AGB anpassen. Über wesentliche Änderungen wird in geeigneter Form informiert.</p>
 
-<h2>11. Schlussbestimmungen</h2>
-<p>Es gilt österreichisches Recht.</p>
+<h2 data-i18n="s11.h">11. Schlussbestimmungen</h2>
+<p data-i18n="s11.p">Es gilt österreichisches Recht.</p>
+
+<script>
+var I18N = {
+  en: {
+    'doc.title': 'Terms — Archio',
+    'back': 'Back to home',
+    'h1': 'Terms and Conditions',
+    'date': 'Last updated: June 2026',
+    'binding': 'This English version is a courtesy translation. In case of doubt, the German version is legally binding.',
+    's1.h': '1. Scope',
+    's1.p': 'These Terms apply to the use of the “Archio” app (the “App”), offered by Alexander Pfalz (the “Provider”).',
+    's2.h': '2. Services',
+    's2.p': 'Archio is an app for scanning, archiving and AI-assisted explanation of documents. The basic features are free. An optional “Pro” subscription unlocks additional features (including unlimited AI analyses, comparison, PDF export).',
+    's3.h': '3. AI-generated content',
+    's3.p': 'The explanations, summaries and comparisons generated by the App are created automatically by an AI system. They are for guidance only and do <strong>not constitute legal, tax or medical advice</strong>. For binding information, please consult a suitably qualified professional. The Provider accepts no warranty for the accuracy or completeness of the AI results.',
+    's4.h': '4. Account',
+    's4.p': 'You can create a free account for cloud backup. You are responsible for keeping your login details confidential. You can delete your account at any time (see <a href="konto-loeschen.html">Delete account &amp; data</a>).',
+    's5.h': '5. Subscription, prices, renewal',
+    's5.p': 'The Pro subscription is available as a monthly or yearly plan. The applicable prices are shown before purchase in the Play Store / App Store. The subscription renews automatically for the selected term unless cancelled in time. Purchase, billing and renewal are handled via your Google or Apple account.',
+    's6.h': '6. Cancellation',
+    's6.p': 'You can cancel the subscription at any time in the settings of your Google or Apple account. Cancellation takes effect at the end of the current billing period.',
+    's7.h': '7. Right of withdrawal',
+    's7.p': 'Statutory provisions apply to digital content. Refunds are handled in accordance with the policies of the respective app store.',
+    's8.h': '8. User obligations',
+    's8.p': 'You warrant that you only submit documents that you are authorised to process. As content is transmitted to an external AI service for analysis, do not upload content that you do not wish to share for this purpose.',
+    's9.h': '9. Liability',
+    's9.p': 'The Provider is liable in accordance with statutory provisions. No liability is accepted for data loss due to device failure, uninstallation or resetting of the App, to the extent permitted by law.',
+    's10.h': '10. Changes',
+    's10.p': 'The Provider may amend these Terms. Material changes will be communicated in an appropriate manner.',
+    's11.h': '11. Final provisions',
+    's11.p': 'Austrian law applies.'
+  }
+};
+(function () {
+  var btns = document.querySelectorAll('.lang-switch button');
+  var nodes = document.querySelectorAll('[data-i18n]');
+  var de = { 'doc.title': document.title };
+  nodes.forEach(function (el) { de[el.getAttribute('data-i18n')] = el.innerHTML; });
+  I18N.de = de;
+  function apply(lang) {
+    var dict = I18N[lang] || I18N.de;
+    document.documentElement.lang = lang;
+    nodes.forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    if (dict['doc.title']) document.title = dict['doc.title'];
+    btns.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang') === lang); });
+    try { localStorage.setItem('archio-lang', lang); } catch (e) {}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('archio-lang'); } catch (e) {}
+  var initial = saved || ((navigator.language || 'de').toLowerCase().indexOf('de') === 0 ? 'de' : 'en');
+  btns.forEach(function (b) { b.addEventListener('click', function () { apply(b.getAttribute('data-lang')); }); });
+  apply(initial);
+})();
+</script>
 </body>
 </html>
