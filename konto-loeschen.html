@@ -14,43 +14,107 @@
   strong { color:#EDF1F8; }
   .note { background:#171A21; border:1px solid #272C36; border-radius:12px; padding:16px; font-size:15px; color:#97A0B3; margin:24px 0; }
   .muted { color:#626B7D; font-size:14px; }
-  .back { display:inline-flex; align-items:center; gap:8px; color:#97A0B3; font-size:14px; margin-bottom:40px; text-decoration:none; transition:color .2s; }
+  .topbar { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:40px; }
+  .back { display:inline-flex; align-items:center; gap:8px; color:#97A0B3; font-size:14px; text-decoration:none; transition:color .2s; }
   .back:hover { color:#4F9EF8; }
   .back svg { width:16px; height:16px; }
+  .lang-switch { display:inline-flex; border:1px solid #272C36; border-radius:999px; overflow:hidden; }
+  .lang-switch button { background:transparent; color:#97A0B3; border:0; padding:5px 12px; font-family:inherit; font-size:13px; font-weight:600; cursor:pointer; transition:background .2s,color .2s; }
+  .lang-switch button:hover { color:#4F9EF8; }
+  .lang-switch button.active { background:#4F9EF8; color:#08111F; }
+  .binding { font-size:13px; color:#626B7D; font-style:italic; margin-top:6px; }
 </style>
 </head>
 <body>
-<a class="back" href="index.html">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-  Zurück zur Startseite
-</a>
-<h1>Konto &amp; Daten löschen</h1>
-<p class="muted">Archio · Anbieter: Alexander Pfalz</p>
+<div class="topbar">
+  <a class="back" href="index.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    <span data-i18n="back">Zurück zur Startseite</span>
+  </a>
+  <span class="lang-switch" role="group" aria-label="Language">
+    <button type="button" data-lang="de">DE</button>
+    <button type="button" data-lang="en">EN</button>
+  </span>
+</div>
+<h1 data-i18n="h1">Konto &amp; Daten löschen</h1>
+<p class="muted" data-i18n="sub">Archio · Anbieter: Alexander Pfalz</p>
+<p class="binding" data-i18n="binding"></p>
 
-<p>Du kannst dein Archio-Konto und die damit verbundenen Daten jederzeit löschen. Es gibt zwei Wege:</p>
+<p data-i18n="intro">Du kannst dein Archio-Konto und die damit verbundenen Daten jederzeit löschen. Es gibt zwei Wege:</p>
 
-<h2>Variante 1: Direkt in der App</h2>
+<h2 data-i18n="v1.h">Variante 1: Direkt in der App</h2>
 <ol>
-  <li>Öffne Archio und gehe zum Tab <strong>Profil</strong>.</li>
-  <li>Tippe im Bereich <strong>Konto</strong> (sichtbar, wenn du angemeldet bist) unten auf <strong>„Konto endgültig löschen"</strong>.</li>
-  <li>Bestätige im Dialog mit <strong>„Endgültig löschen"</strong>. Dein Konto und alle in der Cloud gesicherten Dokumente werden sofort dauerhaft gelöscht.</li>
+  <li data-i18n="v1.s1">Öffne Archio und gehe zum Tab <strong>Profil</strong>.</li>
+  <li data-i18n="v1.s2">Tippe im Bereich <strong>Konto</strong> (sichtbar, wenn du angemeldet bist) unten auf <strong>„Konto endgültig löschen"</strong>.</li>
+  <li data-i18n="v1.s3">Bestätige im Dialog mit <strong>„Endgültig löschen"</strong>. Dein Konto und alle in der Cloud gesicherten Dokumente werden sofort dauerhaft gelöscht.</li>
 </ol>
-<p class="muted">Hinweis: „Alle Daten löschen" im Bereich Aktionen entfernt nur die Dokumente auf dem Gerät, nicht dein Cloud-Konto.</p>
+<p class="muted" data-i18n="v1.note">Hinweis: „Alle Daten löschen" im Bereich Aktionen entfernt nur die Dokumente auf dem Gerät, nicht dein Cloud-Konto.</p>
 
-<h2>Variante 2: Per E-Mail anfragen</h2>
-<p>Schreibe eine E-Mail an <a href="mailto:2easy4trash@gmail.com">2easy4trash@gmail.com</a> mit dem Betreff <strong>„Konto löschen"</strong> von der E-Mail-Adresse, mit der du registriert bist. Wir löschen dein Konto und alle zugehörigen Daten innerhalb von <strong>30 Tagen</strong> und bestätigen dir die Löschung.</p>
+<h2 data-i18n="v2.h">Variante 2: Per E-Mail anfragen</h2>
+<p data-i18n="v2.p">Schreibe eine E-Mail an <a href="mailto:2easy4trash@gmail.com">2easy4trash@gmail.com</a> mit dem Betreff <strong>„Konto löschen"</strong> von der E-Mail-Adresse, mit der du registriert bist. Wir löschen dein Konto und alle zugehörigen Daten innerhalb von <strong>30 Tagen</strong> und bestätigen dir die Löschung.</p>
 
-<h2>Welche Daten werden gelöscht?</h2>
+<h2 data-i18n="which.h">Welche Daten werden gelöscht?</h2>
 <ul>
-  <li>Dein Konto und deine E-Mail-Adresse</li>
-  <li>Alle in der Cloud gesicherten Dokumente, Bilder und KI-Analysen</li>
-  <li>Deine Notizen und Projekte</li>
-  <li>Synchronisierungs- und Nutzungsdaten zu deinem Konto</li>
+  <li data-i18n="which.l1">Dein Konto und deine E-Mail-Adresse</li>
+  <li data-i18n="which.l2">Alle in der Cloud gesicherten Dokumente, Bilder und KI-Analysen</li>
+  <li data-i18n="which.l3">Deine Notizen und Projekte</li>
+  <li data-i18n="which.l4">Synchronisierungs- und Nutzungsdaten zu deinem Konto</li>
 </ul>
 
-<h2>Was bleibt ggf. erhalten?</h2>
-<p>Daten, die wir aus gesetzlichen Gründen aufbewahren müssen (z.&nbsp;B. Rechnungs-/Steuerbelege zu Käufen über den App-Store), werden für die gesetzlich vorgeschriebene Dauer aufbewahrt und danach gelöscht. Käufe und Abrechnungen werden von Google bzw. Apple verwaltet; ein Abo kündigst du in den Einstellungen deines Google- bzw. Apple-Kontos.</p>
+<h2 data-i18n="stays.h">Was bleibt ggf. erhalten?</h2>
+<p data-i18n="stays.p">Daten, die wir aus gesetzlichen Gründen aufbewahren müssen (z.&nbsp;B. Rechnungs-/Steuerbelege zu Käufen über den App-Store), werden für die gesetzlich vorgeschriebene Dauer aufbewahrt und danach gelöscht. Käufe und Abrechnungen werden von Google bzw. Apple verwaltet; ein Abo kündigst du in den Einstellungen deines Google- bzw. Apple-Kontos.</p>
 
-<div class="note">Hinweis: Dokumente, die du <strong>ohne Konto</strong> nur lokal in der App gespeichert hast, liegen ausschließlich auf deinem Gerät. Du löschst sie über „Alle Daten löschen" im Profil oder durch Deinstallation der App.</div>
+<div class="note" data-i18n="bottom.note">Hinweis: Dokumente, die du <strong>ohne Konto</strong> nur lokal in der App gespeichert hast, liegen ausschließlich auf deinem Gerät. Du löschst sie über „Alle Daten löschen" im Profil oder durch Deinstallation der App.</div>
+
+<script>
+var I18N = {
+  en: {
+    'doc.title': 'Delete account & data — Archio',
+    'back': 'Back to home',
+    'h1': 'Delete account &amp; data',
+    'sub': 'Archio · Provider: Alexander Pfalz',
+    'binding': 'This English version is a courtesy translation. In case of doubt, the German version is legally binding.',
+    'intro': 'You can delete your Archio account and the associated data at any time. There are two ways:',
+    'v1.h': 'Option 1: Directly in the app',
+    'v1.s1': 'Open Archio and go to the <strong>Profile</strong> tab.',
+    'v1.s2': 'In the <strong>Account</strong> section (visible when you are signed in), tap <strong>“Delete account permanently”</strong> at the bottom.',
+    'v1.s3': 'Confirm in the dialog with <strong>“Delete permanently”</strong>. Your account and all documents backed up in the cloud are deleted permanently and immediately.',
+    'v1.note': 'Note: “Delete all data” in the Actions section only removes the documents on the device, not your cloud account.',
+    'v2.h': 'Option 2: Request by email',
+    'v2.p': 'Send an email to <a href="mailto:2easy4trash@gmail.com">2easy4trash@gmail.com</a> with the subject <strong>“Delete account”</strong> from the email address you registered with. We will delete your account and all associated data within <strong>30 days</strong> and confirm the deletion to you.',
+    'which.h': 'Which data is deleted?',
+    'which.l1': 'Your account and your email address',
+    'which.l2': 'All documents, images and AI analyses backed up in the cloud',
+    'which.l3': 'Your notes and projects',
+    'which.l4': 'Synchronisation and usage data relating to your account',
+    'stays.h': 'What may be retained?',
+    'stays.p': 'Data that we are required to retain for legal reasons (e.g. invoice/tax records for purchases via the app store) is kept for the legally prescribed period and then deleted. Purchases and billing are managed by Google or Apple; you cancel a subscription in the settings of your Google or Apple account.',
+    'bottom.note': 'Note: documents that you have stored only locally in the App <strong>without an account</strong> reside solely on your device. You delete them via “Delete all data” in the Profile or by uninstalling the App.'
+  }
+};
+(function () {
+  var btns = document.querySelectorAll('.lang-switch button');
+  var nodes = document.querySelectorAll('[data-i18n]');
+  var de = { 'doc.title': document.title };
+  nodes.forEach(function (el) { de[el.getAttribute('data-i18n')] = el.innerHTML; });
+  I18N.de = de;
+  function apply(lang) {
+    var dict = I18N[lang] || I18N.de;
+    document.documentElement.lang = lang;
+    nodes.forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    if (dict['doc.title']) document.title = dict['doc.title'];
+    btns.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang') === lang); });
+    try { localStorage.setItem('archio-lang', lang); } catch (e) {}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('archio-lang'); } catch (e) {}
+  var initial = saved || ((navigator.language || 'de').toLowerCase().indexOf('de') === 0 ? 'de' : 'en');
+  btns.forEach(function (b) { b.addEventListener('click', function () { apply(b.getAttribute('data-lang')); }); });
+  apply(initial);
+})();
+</script>
 </body>
 </html>

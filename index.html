@@ -39,12 +39,19 @@
     /* Header */
     header {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 28px 0;
+      padding: 28px 0; gap: 16px; flex-wrap: wrap;
     }
     .brand { display: flex; align-items: center; gap: 12px; font-family: var(--display); font-weight: 700; font-size: 22px; letter-spacing: -.5px; }
     .mark { width: 38px; height: 38px; }
+    nav { display: flex; align-items: center; flex-wrap: wrap; }
     nav a { color: var(--muted); margin-left: 28px; font-size: 15px; transition: color .2s; }
     nav a:hover { color: var(--accent); }
+
+    /* Language switch */
+    .lang-switch { display: inline-flex; margin-left: 28px; border: 1px solid var(--hairline); border-radius: 999px; overflow: hidden; }
+    .lang-switch button { background: transparent; color: var(--muted); border: 0; padding: 6px 13px; font-family: var(--body); font-size: 13px; font-weight: 600; cursor: pointer; transition: background .2s, color .2s; }
+    .lang-switch button:hover { color: var(--accent); }
+    .lang-switch button.active { background: var(--accent); color: #08111F; }
 
     /* Hero */
     .hero { position: relative; text-align: center; padding: 80px 0 100px; }
@@ -125,19 +132,23 @@
         Archio
       </div>
       <nav>
-        <a href="#features">Features</a>
-        <a href="#how">So geht's</a>
-        <a href="#preise">Preise</a>
-        <a href="#download">Download</a>
+        <a href="#features" data-i18n="nav.features">Features</a>
+        <a href="#how" data-i18n="nav.how">So geht's</a>
+        <a href="#preise" data-i18n="nav.pricing">Preise</a>
+        <a href="#download" data-i18n="nav.download">Download</a>
+        <span class="lang-switch" role="group" aria-label="Language">
+          <button type="button" data-lang="de">DE</button>
+          <button type="button" data-lang="en">EN</button>
+        </span>
       </nav>
     </header>
   </div>
 
   <div class="wrap">
     <div class="hero">
-      <div class="kicker">Dein intelligentes Dokumenten-Archiv</div>
-      <h1>Versteh <span class="accent">jedes Dokument.</span></h1>
-      <p>Verträge, Rechnungen, Arztbriefe, Behördenpost — Archio scannt dein Dokument und erklärt dir mit KI in einfacher Sprache, was wirklich drinsteht. Kein Juristendeutsch mehr.</p>
+      <div class="kicker" data-i18n="hero.kicker">Dein intelligentes Dokumenten-Archiv</div>
+      <h1 data-i18n="hero.title">Versteh <span class="accent">jedes Dokument.</span></h1>
+      <p data-i18n="hero.subtitle">Verträge, Rechnungen, Arztbriefe, Behördenpost — Archio scannt dein Dokument und erklärt dir mit KI in einfacher Sprache, was wirklich drinsteht. Kein Juristendeutsch mehr.</p>
       <div class="cta" id="download">
         <a class="btn btn-primary" href="#">Google Play</a>
         <a class="btn btn-ghost" href="#">App Store</a>
@@ -147,58 +158,58 @@
 
   <div class="wrap">
     <section id="features">
-      <div class="section-label">Was drin ist</div>
-      <h2 class="section-title">Alles für deinen Papierkram</h2>
+      <div class="section-label" data-i18n="feat.label">Was drin ist</div>
+      <h2 class="section-title" data-i18n="feat.title">Alles für deinen Papierkram</h2>
       <div class="features">
-        <div class="card"><div class="ic">📷</div><h3>Dokumente scannen</h3><p>Fotografiere Verträge, Rechnungen, Arztbriefe und Behördenpost mit der Kamera — oder wähle sie aus der Galerie.</p></div>
-        <div class="card"><div class="ic">🤖</div><h3>KI erklärt alles</h3><p>Die KI liest dein Dokument und erklärt in einfacher Sprache, was es ist, was wichtig ist und was du tun musst.</p></div>
-        <div class="card"><div class="ic">⏰</div><h3>Fristen &amp; Erinnerungen</h3><p>Archio erkennt Fristen und Termine automatisch und erinnert dich rechtzeitig — keine Deadline mehr verpasst.</p></div>
-        <div class="card"><div class="ic">💬</div><h3>Chat mit Dokument</h3><p>Stell deinem Dokument einfach Fragen. „Wann kann ich kündigen?" — und du bekommst eine klare Antwort.</p></div>
-        <div class="card"><div class="ic">🔍</div><h3>Dokumente vergleichen</h3><p>Lass zwei Dokumente gegenüberstellen: Unterschiede, Gemeinsamkeiten und eine klare Empfehlung.</p></div>
-        <div class="card"><div class="ic">🗂️</div><h3>Archiv &amp; Projekte</h3><p>Sortiere Dokumente in Projekte, filtere nach Typ und finde alles in Sekunden über die Suche.</p></div>
-        <div class="card"><div class="ic">☁️</div><h3>Cloud-Backup</h3><p>Mit kostenlosem Konto sicherst du deine Dokumente in der Cloud — beim Gerätewechsel geht nichts verloren.</p></div>
-        <div class="card"><div class="ic">🔊</div><h3>Vorlesen</h3><p>Lass dir die Erklärung deines Dokuments einfach vorlesen — praktisch unterwegs oder bei langen Texten.</p></div>
-        <div class="card"><div class="ic">📄</div><h3>PDF-Export &amp; Teilen</h3><p>Exportiere Dokumente und Erklärungen als PDF und teile sie mit einem Tipp per Mail oder Messenger.</p></div>
-        <div class="card"><div class="ic">🏆</div><h3>Statistiken &amp; Badges</h3><p>Behalte den Überblick über dein Archiv und sammle Abzeichen für Meilensteine.</p></div>
+        <div class="card"><div class="ic">📷</div><h3 data-i18n="feat.scan.h">Dokumente scannen</h3><p data-i18n="feat.scan.p">Fotografiere Verträge, Rechnungen, Arztbriefe und Behördenpost mit der Kamera — oder wähle sie aus der Galerie.</p></div>
+        <div class="card"><div class="ic">🤖</div><h3 data-i18n="feat.ai.h">KI erklärt alles</h3><p data-i18n="feat.ai.p">Die KI liest dein Dokument und erklärt in einfacher Sprache, was es ist, was wichtig ist und was du tun musst.</p></div>
+        <div class="card"><div class="ic">⏰</div><h3 data-i18n="feat.deadlines.h">Fristen &amp; Erinnerungen</h3><p data-i18n="feat.deadlines.p">Archio erkennt Fristen und Termine automatisch und erinnert dich rechtzeitig — keine Deadline mehr verpasst.</p></div>
+        <div class="card"><div class="ic">💬</div><h3 data-i18n="feat.chat.h">Chat mit Dokument</h3><p data-i18n="feat.chat.p">Stell deinem Dokument einfach Fragen. „Wann kann ich kündigen?" — und du bekommst eine klare Antwort.</p></div>
+        <div class="card"><div class="ic">🔍</div><h3 data-i18n="feat.compare.h">Dokumente vergleichen</h3><p data-i18n="feat.compare.p">Lass zwei Dokumente gegenüberstellen: Unterschiede, Gemeinsamkeiten und eine klare Empfehlung.</p></div>
+        <div class="card"><div class="ic">🗂️</div><h3 data-i18n="feat.archive.h">Archiv &amp; Projekte</h3><p data-i18n="feat.archive.p">Sortiere Dokumente in Projekte, filtere nach Typ und finde alles in Sekunden über die Suche.</p></div>
+        <div class="card"><div class="ic">☁️</div><h3 data-i18n="feat.cloud.h">Cloud-Backup</h3><p data-i18n="feat.cloud.p">Mit kostenlosem Konto sicherst du deine Dokumente in der Cloud — beim Gerätewechsel geht nichts verloren.</p></div>
+        <div class="card"><div class="ic">🔊</div><h3 data-i18n="feat.tts.h">Vorlesen</h3><p data-i18n="feat.tts.p">Lass dir die Erklärung deines Dokuments einfach vorlesen — praktisch unterwegs oder bei langen Texten.</p></div>
+        <div class="card"><div class="ic">📄</div><h3 data-i18n="feat.pdf.h">PDF-Export &amp; Teilen</h3><p data-i18n="feat.pdf.p">Exportiere Dokumente und Erklärungen als PDF und teile sie mit einem Tipp per Mail oder Messenger.</p></div>
+        <div class="card"><div class="ic">🏆</div><h3 data-i18n="feat.stats.h">Statistiken &amp; Badges</h3><p data-i18n="feat.stats.p">Behalte den Überblick über dein Archiv und sammle Abzeichen für Meilensteine.</p></div>
       </div>
     </section>
 
     <section id="how">
-      <div class="section-label">So geht's</div>
-      <h2 class="section-title">In drei Schritten erklärt</h2>
+      <div class="section-label" data-i18n="how.label">So geht's</div>
+      <h2 class="section-title" data-i18n="how.title">In drei Schritten erklärt</h2>
       <div class="steps">
-        <div class="step"><div class="num">1</div><h3>Scannen</h3><p>Dokument fotografieren oder aus der Galerie wählen.</p></div>
-        <div class="step"><div class="num">2</div><h3>Verstehen</h3><p>Die KI erklärt in Sekunden, was drinsteht und was zu tun ist.</p></div>
-        <div class="step"><div class="num">3</div><h3>Archivieren</h3><p>Ablegen, Fristen setzen, nachfragen — alles an einem Ort.</p></div>
+        <div class="step"><div class="num">1</div><h3 data-i18n="how.s1.h">Scannen</h3><p data-i18n="how.s1.p">Dokument fotografieren oder aus der Galerie wählen.</p></div>
+        <div class="step"><div class="num">2</div><h3 data-i18n="how.s2.h">Verstehen</h3><p data-i18n="how.s2.p">Die KI erklärt in Sekunden, was drinsteht und was zu tun ist.</p></div>
+        <div class="step"><div class="num">3</div><h3 data-i18n="how.s3.h">Archivieren</h3><p data-i18n="how.s3.p">Ablegen, Fristen setzen, nachfragen — alles an einem Ort.</p></div>
       </div>
     </section>
 
     <section id="preise">
-      <div class="section-label">Preise</div>
-      <h2 class="section-title">Fang gratis an</h2>
+      <div class="section-label" data-i18n="price.label">Preise</div>
+      <h2 class="section-title" data-i18n="price.title">Fang gratis an</h2>
       <div class="pricing">
         <div class="price-card">
-          <div class="plan">Free</div>
+          <div class="plan" data-i18n="price.free.plan">Free</div>
           <div class="amount">0 €</div>
-          <div class="per">für immer</div>
+          <div class="per" data-i18n="price.free.per">für immer</div>
           <ul>
-            <li>5 Dokumente pro Monat gratis analysieren</li>
-            <li>Scannen, Archiv &amp; Projekte</li>
-            <li>Fristen-Erinnerungen</li>
-            <li>Cloud-Backup mit Konto</li>
+            <li data-i18n="price.free.l1">5 Dokumente pro Monat gratis analysieren</li>
+            <li data-i18n="price.free.l2">Scannen, Archiv &amp; Projekte</li>
+            <li data-i18n="price.free.l3">Fristen-Erinnerungen</li>
+            <li data-i18n="price.free.l4">Cloud-Backup mit Konto</li>
           </ul>
         </div>
         <div class="price-card featured">
-          <div class="plan">Pro</div>
+          <div class="plan" data-i18n="price.pro.plan">Pro</div>
           <div class="amount">3,99 €</div>
-          <div class="per">pro Monat — jederzeit kündbar</div>
+          <div class="per" data-i18n="price.pro.per">pro Monat — jederzeit kündbar</div>
           <ul>
-            <li>Unbegrenzte KI-Analysen</li>
-            <li>Chat mit Dokumenten ohne Limit</li>
-            <li>Dokumente vergleichen</li>
-            <li>PDF-Export</li>
-            <li>Vorlesen &amp; Vorlagen</li>
-            <li>Alle künftigen Pro-Features</li>
+            <li data-i18n="price.pro.l1">Unbegrenzte KI-Analysen</li>
+            <li data-i18n="price.pro.l2">Chat mit Dokumenten ohne Limit</li>
+            <li data-i18n="price.pro.l3">Dokumente vergleichen</li>
+            <li data-i18n="price.pro.l4">PDF-Export</li>
+            <li data-i18n="price.pro.l5">Vorlesen &amp; Vorlagen</li>
+            <li data-i18n="price.pro.l6">Alle künftigen Pro-Features</li>
           </ul>
         </div>
       </div>
@@ -209,13 +220,107 @@
     <div class="wrap">
       <div class="foot-brand">Archio</div>
       <div>
-        <a href="datenschutz.html">Datenschutz</a>
-        <a href="agb.html">AGB</a>
-        <a href="impressum.html">Impressum</a>
-        <a href="konto-loeschen.html">Konto löschen</a>
+        <a href="datenschutz.html" data-i18n="foot.privacy">Datenschutz</a>
+        <a href="agb.html" data-i18n="foot.terms">AGB</a>
+        <a href="impressum.html" data-i18n="foot.imprint">Impressum</a>
+        <a href="konto-loeschen.html" data-i18n="foot.delete">Konto löschen</a>
       </div>
-      <p style="margin-top:16px">© 2026 Archio. Mit ♥ gebaut.</p>
+      <p style="margin-top:16px" data-i18n="foot.copy">© 2026 Archio. Mit ♥ gebaut.</p>
     </div>
   </footer>
+
+  <script>
+    var I18N = {
+      en: {
+        'doc.title': 'Archio — Understand every document',
+        'nav.features': 'Features',
+        'nav.how': 'How it works',
+        'nav.pricing': 'Pricing',
+        'nav.download': 'Download',
+        'hero.kicker': 'Your smart document archive',
+        'hero.title': 'Understand <span class="accent">every document.</span>',
+        'hero.subtitle': 'Contracts, invoices, medical letters, official mail — Archio scans your document and uses AI to explain in plain language what it really says. No more legalese.',
+        'feat.label': "What's inside",
+        'feat.title': 'Everything for your paperwork',
+        'feat.scan.h': 'Scan documents',
+        'feat.scan.p': 'Photograph contracts, invoices, medical letters and official mail with the camera — or pick them from your gallery.',
+        'feat.ai.h': 'AI explains everything',
+        'feat.ai.p': 'The AI reads your document and explains in plain language what it is, what matters and what you need to do.',
+        'feat.deadlines.h': 'Deadlines &amp; reminders',
+        'feat.deadlines.p': 'Archio detects deadlines and dates automatically and reminds you in time — never miss a deadline again.',
+        'feat.chat.h': 'Chat with your document',
+        'feat.chat.p': 'Just ask your document questions. “When can I cancel?” — and you get a clear answer.',
+        'feat.compare.h': 'Compare documents',
+        'feat.compare.p': 'Put two documents side by side: differences, similarities and a clear recommendation.',
+        'feat.archive.h': 'Archive &amp; projects',
+        'feat.archive.p': 'Sort documents into projects, filter by type and find everything in seconds via search.',
+        'feat.cloud.h': 'Cloud backup',
+        'feat.cloud.p': 'With a free account you back up your documents to the cloud — nothing is lost when you switch devices.',
+        'feat.tts.h': 'Read aloud',
+        'feat.tts.p': 'Have the explanation of your document read aloud — handy on the go or for long texts.',
+        'feat.pdf.h': 'PDF export &amp; sharing',
+        'feat.pdf.p': 'Export documents and explanations as PDF and share them with a tap via email or messenger.',
+        'feat.stats.h': 'Stats &amp; badges',
+        'feat.stats.p': 'Keep track of your archive and collect badges for milestones.',
+        'how.label': 'How it works',
+        'how.title': 'Explained in three steps',
+        'how.s1.h': 'Scan',
+        'how.s1.p': 'Photograph a document or pick it from your gallery.',
+        'how.s2.h': 'Understand',
+        'how.s2.p': 'The AI explains in seconds what it says and what to do.',
+        'how.s3.h': 'Archive',
+        'how.s3.p': 'File it, set deadlines, ask questions — all in one place.',
+        'price.label': 'Pricing',
+        'price.title': 'Start for free',
+        'price.free.plan': 'Free',
+        'price.free.per': 'forever',
+        'price.free.l1': 'Analyze 5 documents per month for free',
+        'price.free.l2': 'Scanning, archive &amp; projects',
+        'price.free.l3': 'Deadline reminders',
+        'price.free.l4': 'Cloud backup with account',
+        'price.pro.plan': 'Pro',
+        'price.pro.per': 'per month — cancel anytime',
+        'price.pro.l1': 'Unlimited AI analyses',
+        'price.pro.l2': 'Chat with documents without limits',
+        'price.pro.l3': 'Compare documents',
+        'price.pro.l4': 'PDF export',
+        'price.pro.l5': 'Read aloud &amp; templates',
+        'price.pro.l6': 'All future Pro features',
+        'foot.privacy': 'Privacy',
+        'foot.terms': 'Terms',
+        'foot.imprint': 'Imprint',
+        'foot.delete': 'Delete account',
+        'foot.copy': '© 2026 Archio. Built with ♥.'
+      }
+    };
+
+    (function () {
+      var btns = document.querySelectorAll('.lang-switch button');
+      var nodes = document.querySelectorAll('[data-i18n]');
+      // Capture the original German content as the 'de' baseline so switching back restores it.
+      var de = { 'doc.title': document.title };
+      nodes.forEach(function (el) { de[el.getAttribute('data-i18n')] = el.innerHTML; });
+      I18N.de = de;
+
+      function apply(lang) {
+        var dict = I18N[lang] || I18N.de;
+        document.documentElement.lang = lang;
+        nodes.forEach(function (el) {
+          var key = el.getAttribute('data-i18n');
+          if (dict[key] !== undefined) el.innerHTML = dict[key];
+        });
+        if (dict['doc.title']) document.title = dict['doc.title'];
+        btns.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang') === lang); });
+        try { localStorage.setItem('archio-lang', lang); } catch (e) {}
+      }
+      var saved = null;
+      try { saved = localStorage.getItem('archio-lang'); } catch (e) {}
+      var initial = saved || ((navigator.language || 'de').toLowerCase().indexOf('de') === 0 ? 'de' : 'en');
+      btns.forEach(function (b) {
+        b.addEventListener('click', function () { apply(b.getAttribute('data-lang')); });
+      });
+      apply(initial);
+    })();
+  </script>
 </body>
 </html>
