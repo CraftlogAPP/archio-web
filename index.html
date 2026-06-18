@@ -111,6 +111,16 @@
     .price-card li { padding: 9px 0; color: var(--muted); font-size: 15px; display: flex; gap: 10px; }
     .price-card li::before { content: '✓'; color: var(--accent); font-weight: 700; }
 
+    /* More apps */
+    .apps { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 760px; margin: 0 auto; }
+    .app-card { background: var(--surface); border: 1px solid var(--hairline); border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 16px; transition: border-color .2s, transform .2s; }
+    .app-card:hover { border-color: var(--accent-deep); transform: translateY(-4px); }
+    .app-head { display: flex; align-items: center; gap: 16px; }
+    .app-icon { width: 60px; height: 60px; border-radius: 16px; flex-shrink: 0; }
+    .app-name { font-family: var(--display); font-weight: 600; font-size: 22px; letter-spacing: -.3px; }
+    .app-card p { color: var(--muted); font-size: 15px; flex: 1; margin: 0; }
+    .app-card .btn { align-self: flex-start; padding: 12px 26px; font-size: 15px; }
+
     /* Footer */
     footer { border-top: 1px solid var(--hairline); padding: 40px 0; text-align: center; color: var(--faint); font-size: 14px; }
     footer a { color: var(--muted); margin: 0 12px; }
@@ -135,6 +145,7 @@
         <a href="#features" data-i18n="nav.features">Features</a>
         <a href="#how" data-i18n="nav.how">So geht's</a>
         <a href="#preise" data-i18n="nav.pricing">Preise</a>
+        <a href="#apps" data-i18n="nav.apps">Mehr Apps</a>
         <a href="#download" data-i18n="nav.download">Download</a>
         <span class="lang-switch" role="group" aria-label="Language">
           <button type="button" data-lang="de">DE</button>
@@ -214,6 +225,29 @@
         </div>
       </div>
     </section>
+
+    <section id="apps">
+      <div class="section-label" data-i18n="apps.label">Aus der gleichen Werkstatt</div>
+      <h2 class="section-title" data-i18n="apps.title">Mehr Tools für dich</h2>
+      <div class="apps">
+        <div class="app-card">
+          <div class="app-head">
+            <img class="app-icon" src="routelog-icon.png" alt="RouteLog" width="60" height="60" loading="lazy" />
+            <div class="app-name">RouteLog</div>
+          </div>
+          <p data-i18n="apps.routelog.p">Automatisches Fahrtenbuch – Fahrten per GPS &amp; KI erfassen, steuerfertig als PDF exportieren.</p>
+          <a class="btn btn-ghost" href="https://craftlogapp.github.io/routelog-web" data-i18n="apps.open">Ansehen</a>
+        </div>
+        <div class="app-card">
+          <div class="app-head">
+            <img class="app-icon" src="craftlog-icon.png" alt="CraftLog" width="60" height="60" loading="lazy" />
+            <div class="app-name">CraftLog</div>
+          </div>
+          <p data-i18n="apps.craftlog.p">Dein Projekt-Tagebuch für Heimwerker – Schritte, Material und Stunden immer im Griff.</p>
+          <a class="btn btn-ghost" href="https://craftlogapp.github.io/craftlog-web" data-i18n="apps.open">Ansehen</a>
+        </div>
+      </div>
+    </section>
   </div>
 
   <footer>
@@ -236,6 +270,7 @@
         'nav.features': 'Features',
         'nav.how': 'How it works',
         'nav.pricing': 'Pricing',
+        'nav.apps': 'More apps',
         'nav.download': 'Download',
         'hero.kicker': 'Your smart document archive',
         'hero.title': 'Understand <span class="accent">every document.</span>',
@@ -286,6 +321,11 @@
         'price.pro.l4': 'PDF export',
         'price.pro.l5': 'Read aloud &amp; templates',
         'price.pro.l6': 'All future Pro features',
+        'apps.label': 'From the same workshop',
+        'apps.title': 'More tools for you',
+        'apps.routelog.p': 'Automatic mileage logbook – capture trips via GPS &amp; AI and export a tax-ready PDF.',
+        'apps.craftlog.p': 'Your project journal for makers – keep steps, materials and hours under control.',
+        'apps.open': 'Take a look',
         'foot.privacy': 'Privacy',
         'foot.terms': 'Terms',
         'foot.imprint': 'Imprint',
