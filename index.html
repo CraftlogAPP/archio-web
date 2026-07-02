@@ -26,23 +26,43 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
-      background: var(--bg);
+      background:
+        radial-gradient(1100px 620px at 18% -140px, rgba(79,158,248,.16), transparent 65%),
+        radial-gradient(900px 600px at 95% 5%, rgba(44,123,229,.12), transparent 62%),
+        radial-gradient(800px 520px at 50% 115%, rgba(79,158,248,.08), transparent 60%),
+        var(--bg);
+      background-attachment: fixed;
       color: var(--text);
       font-family: var(--body);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
-    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+      background-size: 44px 44px;
+      -webkit-mask-image: radial-gradient(900px 620px at 50% 0%, #000 25%, transparent 75%);
+      mask-image: radial-gradient(900px 620px at 50% 0%, #000 25%, transparent 75%);
+    }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
     a { color: inherit; text-decoration: none; }
 
-    /* Header */
+    /* Sticky glass header */
+    .sitehead {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(15,17,21,.72);
+      -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
     header {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 28px 0; gap: 16px; flex-wrap: wrap;
+      padding: 16px 0; gap: 16px; flex-wrap: wrap;
     }
     .brand { display: flex; align-items: center; gap: 12px; font-family: var(--display); font-weight: 700; font-size: 22px; letter-spacing: -.5px; }
-    .mark { width: 38px; height: 38px; }
+    .mark { width: 38px; height: 38px; filter: drop-shadow(0 6px 16px rgba(79,158,248,.35)); }
     nav { display: flex; align-items: center; flex-wrap: wrap; }
     nav a { color: var(--muted); margin-left: 28px; font-size: 15px; transition: color .2s; }
     nav a:hover { color: var(--accent); }
@@ -54,11 +74,11 @@
     .lang-switch button.active { background: var(--accent); color: #08111F; }
 
     /* Hero */
-    .hero { position: relative; text-align: center; padding: 80px 0 100px; }
+    .hero { position: relative; text-align: center; padding: 90px 0 100px; }
     .hero::before {
       content: ''; position: absolute; top: -120px; left: 50%; transform: translateX(-50%);
-      width: 560px; height: 560px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(79,158,248,0.16), transparent 65%);
+      width: 620px; height: 620px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(79,158,248,0.18), transparent 65%);
       pointer-events: none;
     }
     .kicker { color: var(--accent-soft); letter-spacing: 3px; text-transform: uppercase; font-size: 13px; font-weight: 600; }
@@ -66,7 +86,17 @@
       font-family: var(--display); font-weight: 700; font-size: clamp(44px, 8vw, 84px);
       line-height: 1.04; margin: 18px 0 22px; letter-spacing: -1.5px;
     }
-    .hero h1 .accent { color: var(--accent); }
+    .hero h1 .accent {
+      background: linear-gradient(120deg, #A8CEFF, var(--accent));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .hero > * { opacity: 0; transform: translateY(16px); animation: rise .7s cubic-bezier(.22,.61,.36,1) forwards; }
+      .hero > *:nth-child(2) { animation-delay: .08s; }
+      .hero > *:nth-child(3) { animation-delay: .16s; }
+      .hero > *:nth-child(4) { animation-delay: .24s; }
+      @keyframes rise { to { opacity: 1; transform: none; } }
+    }
     .hero p { color: var(--muted); font-size: clamp(17px, 2.4vw, 21px); max-width: 620px; margin: 0 auto 40px; }
     .cta { display: inline-flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
     .btn {
@@ -75,8 +105,10 @@
       transition: transform .15s, opacity .15s, box-shadow .15s;
     }
     .btn:hover { transform: translateY(-2px); }
-    .btn-primary { background: var(--accent); color: #08111F; box-shadow: 0 8px 30px rgba(79,158,248,0.25); }
+    .btn-primary { background: linear-gradient(135deg, var(--accent-soft), var(--accent)); color: #08111F; box-shadow: 0 10px 30px rgba(79,158,248,0.3); }
+    .btn-primary:hover { box-shadow: 0 14px 38px rgba(79,158,248,0.42); }
     .btn-ghost { background: var(--surface); color: var(--accent); border: 1px solid var(--hairline); }
+    .btn-ghost:hover { border-color: var(--accent-deep); }
 
     /* Sections */
     section { padding: 70px 0; }
@@ -85,11 +117,18 @@
 
     .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
     .card {
-      background: var(--surface); border: 1px solid var(--hairline); border-radius: 24px; padding: 32px;
+      position: relative; overflow: hidden;
+      background: linear-gradient(180deg, var(--surface), #14171E);
+      border: 1px solid var(--hairline); border-radius: 24px; padding: 32px;
       transition: border-color .2s, transform .2s;
     }
+    .card::before { content: ''; position: absolute; inset: 0;
+      background: radial-gradient(360px 180px at 100% 0%, rgba(79,158,248,.10), transparent 70%); opacity: .9; }
+    .card > * { position: relative; }
     .card:hover { border-color: var(--accent-deep); transform: translateY(-4px); }
-    .card .ic { width: 52px; height: 52px; border-radius: 14px; background: var(--surface-raised); display: flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 18px; }
+    .card .ic { width: 52px; height: 52px; border-radius: 14px; background: var(--surface-raised);
+      border: 1px solid rgba(79,158,248,.2);
+      display: flex; align-items: center; justify-content: center; font-size: 26px; margin-bottom: 18px; }
     .card h3 { font-family: var(--display); font-weight: 600; font-size: 21px; margin-bottom: 8px; letter-spacing: -.3px; }
     .card p { color: var(--muted); font-size: 15px; }
 
@@ -102,8 +141,10 @@
 
     /* Pricing */
     .pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; max-width: 720px; margin: 0 auto; }
-    .price-card { background: var(--surface); border: 1px solid var(--hairline); border-radius: 24px; padding: 36px; }
-    .price-card.featured { border-color: var(--accent); background: linear-gradient(180deg, rgba(79,158,248,0.10), var(--surface)); }
+    .price-card { background: linear-gradient(180deg, var(--surface), #14171E); border: 1px solid var(--hairline); border-radius: 24px; padding: 36px; transition: transform .2s; }
+    .price-card:hover { transform: translateY(-4px); }
+    .price-card.featured { border-color: var(--accent); background: linear-gradient(180deg, rgba(79,158,248,0.10), var(--surface));
+      box-shadow: 0 0 0 1px rgba(79,158,248,.35), 0 18px 44px rgba(79,158,248,.12); }
     .price-card .plan { font-family: var(--display); font-size: 24px; font-weight: 600; }
     .price-card .amount { font-family: var(--display); font-size: 44px; font-weight: 700; color: var(--accent); margin: 12px 0 4px; }
     .price-card .per { color: var(--faint); font-size: 14px; }
@@ -113,10 +154,25 @@
 
     /* More apps */
     .apps { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; max-width: 760px; margin: 0 auto; }
-    .app-card { background: var(--surface); border: 1px solid var(--hairline); border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 16px; transition: border-color .2s, transform .2s; }
+    .app-card { position: relative; overflow: hidden;
+      background: linear-gradient(180deg, var(--surface), #14171E);
+      border: 1px solid var(--hairline); border-radius: 24px; padding: 28px; display: flex; flex-direction: column; gap: 16px; transition: border-color .2s, transform .2s; }
+    .app-card::before { content: ''; position: absolute; inset: 0;
+      background: radial-gradient(300px 140px at 100% 0%, rgba(79,158,248,.10), transparent 70%); opacity: .8; }
+    .app-card > * { position: relative; }
     .app-card:hover { border-color: var(--accent-deep); transform: translateY(-4px); }
     .app-head { display: flex; align-items: center; gap: 16px; }
-    .app-icon { width: 60px; height: 60px; border-radius: 16px; flex-shrink: 0; }
+    .app-icon { width: 60px; height: 60px; border-radius: 16px; flex-shrink: 0;
+      box-shadow: 0 4px 14px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.08); }
+
+    /* Scroll reveal */
+    .reveal.pre { opacity: 0; transform: translateY(18px); }
+    .reveal.in { opacity: 1; transform: none; transition: opacity .6s ease, transform .6s cubic-bezier(.22,.61,.36,1); }
+    .features .reveal.in:nth-child(2), .apps .reveal.in:nth-child(2), .steps .reveal.in:nth-child(2), .pricing .reveal.in:nth-child(2) { transition-delay: .07s; }
+    .features .reveal.in:nth-child(3), .apps .reveal.in:nth-child(3), .steps .reveal.in:nth-child(3) { transition-delay: .14s; }
+    .features .reveal.in:nth-child(4), .apps .reveal.in:nth-child(4) { transition-delay: .21s; }
+    .features .reveal.in:nth-child(5), .apps .reveal.in:nth-child(5) { transition-delay: .28s; }
+    .features .reveal.in:nth-child(6), .apps .reveal.in:nth-child(6) { transition-delay: .35s; }
     .app-name { font-family: var(--display); font-weight: 600; font-size: 22px; letter-spacing: -.3px; }
     .app-card p { color: var(--muted); font-size: 15px; flex: 1; margin: 0; }
     .app-card .btn { align-self: flex-start; padding: 12px 26px; font-size: 15px; }
@@ -129,6 +185,7 @@
   </style>
 </head>
 <body>
+  <div class="sitehead">
   <div class="wrap">
     <header>
       <div class="brand">
@@ -154,6 +211,7 @@
       </nav>
     </header>
   </div>
+  </div>
 
   <div class="wrap">
     <div class="hero">
@@ -171,16 +229,16 @@
       <div class="section-label" data-i18n="feat.label">Was drin ist</div>
       <h2 class="section-title" data-i18n="feat.title">Alles für deinen Papierkram</h2>
       <div class="features">
-        <div class="card"><div class="ic">📷</div><h3 data-i18n="feat.scan.h">Dokumente scannen</h3><p data-i18n="feat.scan.p">Fotografiere Verträge, Rechnungen, Arztbriefe und Behördenpost mit der Kamera — oder wähle sie aus der Galerie.</p></div>
-        <div class="card"><div class="ic">🤖</div><h3 data-i18n="feat.ai.h">KI erklärt alles</h3><p data-i18n="feat.ai.p">Die KI liest dein Dokument und erklärt in einfacher Sprache, was es ist, was wichtig ist und was du tun musst.</p></div>
-        <div class="card"><div class="ic">⏰</div><h3 data-i18n="feat.deadlines.h">Fristen &amp; Erinnerungen</h3><p data-i18n="feat.deadlines.p">DokuDex erkennt Fristen und Termine automatisch und erinnert dich rechtzeitig — keine Deadline mehr verpasst.</p></div>
-        <div class="card"><div class="ic">💬</div><h3 data-i18n="feat.chat.h">Chat mit Dokument</h3><p data-i18n="feat.chat.p">Stell deinem Dokument einfach Fragen. „Wann kann ich kündigen?" — und du bekommst eine klare Antwort.</p></div>
-        <div class="card"><div class="ic">🔍</div><h3 data-i18n="feat.compare.h">Dokumente vergleichen</h3><p data-i18n="feat.compare.p">Lass zwei Dokumente gegenüberstellen: Unterschiede, Gemeinsamkeiten und eine klare Empfehlung.</p></div>
-        <div class="card"><div class="ic">🗂️</div><h3 data-i18n="feat.archive.h">Archiv &amp; Projekte</h3><p data-i18n="feat.archive.p">Sortiere Dokumente in Projekte, filtere nach Typ und finde alles in Sekunden über die Suche.</p></div>
-        <div class="card"><div class="ic">☁️</div><h3 data-i18n="feat.cloud.h">Cloud-Backup</h3><p data-i18n="feat.cloud.p">Mit kostenlosem Konto sicherst du deine Dokumente in der Cloud — beim Gerätewechsel geht nichts verloren.</p></div>
-        <div class="card"><div class="ic">🔊</div><h3 data-i18n="feat.tts.h">Vorlesen</h3><p data-i18n="feat.tts.p">Lass dir die Erklärung deines Dokuments einfach vorlesen — praktisch unterwegs oder bei langen Texten.</p></div>
-        <div class="card"><div class="ic">📄</div><h3 data-i18n="feat.pdf.h">PDF-Export &amp; Teilen</h3><p data-i18n="feat.pdf.p">Exportiere Dokumente und Erklärungen als PDF und teile sie mit einem Tipp per Mail oder Messenger.</p></div>
-        <div class="card"><div class="ic">🏆</div><h3 data-i18n="feat.stats.h">Statistiken &amp; Badges</h3><p data-i18n="feat.stats.p">Behalte den Überblick über dein Archiv und sammle Abzeichen für Meilensteine.</p></div>
+        <div class="card reveal"><div class="ic">📷</div><h3 data-i18n="feat.scan.h">Dokumente scannen</h3><p data-i18n="feat.scan.p">Fotografiere Verträge, Rechnungen, Arztbriefe und Behördenpost mit der Kamera — oder wähle sie aus der Galerie.</p></div>
+        <div class="card reveal"><div class="ic">🤖</div><h3 data-i18n="feat.ai.h">KI erklärt alles</h3><p data-i18n="feat.ai.p">Die KI liest dein Dokument und erklärt in einfacher Sprache, was es ist, was wichtig ist und was du tun musst.</p></div>
+        <div class="card reveal"><div class="ic">⏰</div><h3 data-i18n="feat.deadlines.h">Fristen &amp; Erinnerungen</h3><p data-i18n="feat.deadlines.p">DokuDex erkennt Fristen und Termine automatisch und erinnert dich rechtzeitig — keine Deadline mehr verpasst.</p></div>
+        <div class="card reveal"><div class="ic">💬</div><h3 data-i18n="feat.chat.h">Chat mit Dokument</h3><p data-i18n="feat.chat.p">Stell deinem Dokument einfach Fragen. „Wann kann ich kündigen?" — und du bekommst eine klare Antwort.</p></div>
+        <div class="card reveal"><div class="ic">🔍</div><h3 data-i18n="feat.compare.h">Dokumente vergleichen</h3><p data-i18n="feat.compare.p">Lass zwei Dokumente gegenüberstellen: Unterschiede, Gemeinsamkeiten und eine klare Empfehlung.</p></div>
+        <div class="card reveal"><div class="ic">🗂️</div><h3 data-i18n="feat.archive.h">Archiv &amp; Projekte</h3><p data-i18n="feat.archive.p">Sortiere Dokumente in Projekte, filtere nach Typ und finde alles in Sekunden über die Suche.</p></div>
+        <div class="card reveal"><div class="ic">☁️</div><h3 data-i18n="feat.cloud.h">Cloud-Backup</h3><p data-i18n="feat.cloud.p">Mit kostenlosem Konto sicherst du deine Dokumente in der Cloud — beim Gerätewechsel geht nichts verloren.</p></div>
+        <div class="card reveal"><div class="ic">🔊</div><h3 data-i18n="feat.tts.h">Vorlesen</h3><p data-i18n="feat.tts.p">Lass dir die Erklärung deines Dokuments einfach vorlesen — praktisch unterwegs oder bei langen Texten.</p></div>
+        <div class="card reveal"><div class="ic">📄</div><h3 data-i18n="feat.pdf.h">PDF-Export &amp; Teilen</h3><p data-i18n="feat.pdf.p">Exportiere Dokumente und Erklärungen als PDF und teile sie mit einem Tipp per Mail oder Messenger.</p></div>
+        <div class="card reveal"><div class="ic">🏆</div><h3 data-i18n="feat.stats.h">Statistiken &amp; Badges</h3><p data-i18n="feat.stats.p">Behalte den Überblick über dein Archiv und sammle Abzeichen für Meilensteine.</p></div>
       </div>
     </section>
 
@@ -188,9 +246,9 @@
       <div class="section-label" data-i18n="how.label">So geht's</div>
       <h2 class="section-title" data-i18n="how.title">In drei Schritten erklärt</h2>
       <div class="steps">
-        <div class="step"><div class="num">1</div><h3 data-i18n="how.s1.h">Scannen</h3><p data-i18n="how.s1.p">Dokument fotografieren oder aus der Galerie wählen.</p></div>
-        <div class="step"><div class="num">2</div><h3 data-i18n="how.s2.h">Verstehen</h3><p data-i18n="how.s2.p">Die KI erklärt in Sekunden, was drinsteht und was zu tun ist.</p></div>
-        <div class="step"><div class="num">3</div><h3 data-i18n="how.s3.h">Archivieren</h3><p data-i18n="how.s3.p">Ablegen, Fristen setzen, nachfragen — alles an einem Ort.</p></div>
+        <div class="step reveal"><div class="num">1</div><h3 data-i18n="how.s1.h">Scannen</h3><p data-i18n="how.s1.p">Dokument fotografieren oder aus der Galerie wählen.</p></div>
+        <div class="step reveal"><div class="num">2</div><h3 data-i18n="how.s2.h">Verstehen</h3><p data-i18n="how.s2.p">Die KI erklärt in Sekunden, was drinsteht und was zu tun ist.</p></div>
+        <div class="step reveal"><div class="num">3</div><h3 data-i18n="how.s3.h">Archivieren</h3><p data-i18n="how.s3.p">Ablegen, Fristen setzen, nachfragen — alles an einem Ort.</p></div>
       </div>
     </section>
 
@@ -198,7 +256,7 @@
       <div class="section-label" data-i18n="price.label">Preise</div>
       <h2 class="section-title" data-i18n="price.title">Fang gratis an</h2>
       <div class="pricing">
-        <div class="price-card">
+        <div class="price-card reveal">
           <div class="plan" data-i18n="price.free.plan">Free</div>
           <div class="amount">0 €</div>
           <div class="per" data-i18n="price.free.per">für immer</div>
@@ -209,7 +267,7 @@
             <li data-i18n="price.free.l4">Cloud-Backup mit Konto</li>
           </ul>
         </div>
-        <div class="price-card featured">
+        <div class="price-card featured reveal">
           <div class="plan" data-i18n="price.pro.plan">Pro</div>
           <div class="amount">3,99 €</div>
           <div class="per" data-i18n="price.pro.per">pro Monat — jederzeit kündbar</div>
@@ -229,7 +287,7 @@
       <div class="section-label" data-i18n="apps.label">Die Dexware-Familie</div>
       <h2 class="section-title" data-i18n="apps.title">Entdecke die ganze Dexware</h2>
       <div class="apps">
-        <div class="app-card">
+        <div class="app-card reveal">
           <div class="app-head">
             <img class="app-icon" src="winterdex-icon.png" alt="WinterDex" width="60" height="60" loading="lazy" />
             <div class="app-name">WinterDex</div>
@@ -237,7 +295,7 @@
           <p data-i18n="apps.winterdex.p">Winterdienst-Nachweis – Räum- &amp; Streueinsätze gerichtsfest dokumentieren.</p>
           <a class="btn btn-ghost" href="https://winterdex.dexware.app" data-i18n="apps.open">Ansehen</a>
         </div>
-        <div class="app-card">
+        <div class="app-card reveal">
           <div class="app-head">
             <img class="app-icon" src="routelog-icon.png" alt="TourDex" width="60" height="60" loading="lazy" />
             <div class="app-name">TourDex</div>
@@ -245,7 +303,7 @@
           <p data-i18n="apps.routelog.p">Automatisches Fahrtenbuch – Fahrten per GPS &amp; KI erfassen, steuerfertig als PDF exportieren.</p>
           <a class="btn btn-ghost" href="https://tourdex.dexware.app" data-i18n="apps.open">Ansehen</a>
         </div>
-        <div class="app-card">
+        <div class="app-card reveal">
           <div class="app-head">
             <img class="app-icon" src="craftlog-icon.png" alt="CraftDex" width="60" height="60" loading="lazy" />
             <div class="app-name">CraftDex</div>
@@ -253,7 +311,7 @@
           <p data-i18n="apps.craftlog.p">Dein Projekt-Tagebuch für Heimwerker – Schritte, Material und Stunden immer im Griff.</p>
           <a class="btn btn-ghost" href="https://craftdex.dexware.app" data-i18n="apps.open">Ansehen</a>
         </div>
-        <div class="app-card">
+        <div class="app-card reveal">
           <div class="app-head">
             <img class="app-icon" src="baumdex-icon.png" alt="BaumDex" width="60" height="60" loading="lazy" />
             <div class="app-name">BaumDex</div>
@@ -261,7 +319,7 @@
           <p data-i18n="apps.baumdex.p">Digitales Baumkataster & Baumkontrolle – Verkehrssicherung mobil erfassen und als PDF nachweisen.</p>
           <a class="btn btn-ghost" href="https://baumdex-portal.vercel.app" data-i18n="apps.open">Ansehen</a>
         </div>
-        <div class="app-card">
+        <div class="app-card reveal">
           <div class="app-head">
             <img class="app-icon" src="schutzheld-icon.png" alt="SchutzDex" width="60" height="60" loading="lazy" />
             <div class="app-name">SchutzDex</div>
@@ -269,7 +327,7 @@
           <p data-i18n="apps.schutzheld.p">Arbeitsschutz-Unterweisung & Gefährdungsbeurteilung – prüffest dokumentiert.</p>
           <a class="btn btn-ghost" href="https://schutzdex.dexware.app" data-i18n="apps.open">Ansehen</a>
         </div>
-        <div class="app-card">
+        <div class="app-card reveal">
           <div class="app-head">
             <img class="app-icon" src="pruefdex-icon.png" alt="PrüfDex" width="60" height="60" loading="lazy" />
             <div class="app-name">PrüfDex</div>
@@ -399,6 +457,19 @@
         b.addEventListener('click', function () { apply(b.getAttribute('data-lang')); });
       });
       apply(initial);
+    })();
+
+    (function () {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (!('IntersectionObserver' in window)) return;
+      var els = document.querySelectorAll('.reveal');
+      for (var i = 0; i < els.length; i++) els[i].classList.add('pre');
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      for (var j = 0; j < els.length; j++) io.observe(els[j]);
     })();
   </script>
 </body>
