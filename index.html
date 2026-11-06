@@ -372,6 +372,13 @@
       .wall-in { left: -30%; top: -20%; width: 170%; opacity: .42; }
     }
     @media (max-width: 480px) { .col { width: 128px; } .wall-in { gap: 18px; } }
+
+    /* Kopf „dokudex“: phones=stack, wall=tight, speed=1, frame=dark (looks.js) */
+    .wall-in { gap: 16px; left: 30%; transform: perspective(2200px) rotateX(12deg) rotateZ(-10deg); }
+    .col { width: 116px; } .mp { margin-bottom: 16px; }
+    @media (max-width: 900px) { .wall-in { left: -24%; top: -20%; width: 170%; opacity: .42; } }
+    .track { animation-duration: calc(var(--d) * 1); }
+    .mp { border-radius: 18px; } .mp::before { border-radius: 13px 13px 0 0; } .mp img { border-radius: 0 0 13px 13px; }
   </style>
   <script>document.documentElement.classList.add('js');(function(){var l;try{l=localStorage.getItem('lang')}catch(e){}if(l!=='de'&&l!=='en')l=(navigator.language||'de').toLowerCase().indexOf('de')===0?'de':'en';document.documentElement.setAttribute('data-lang',l);document.documentElement.lang=l})()</script>
 </head>
