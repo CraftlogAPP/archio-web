@@ -1,0 +1,58 @@
+# DokuDex
+
+> DokuDex ist eine App von Dexware. Behördenpost oder Vertrag unklar? DokuDex erklärt jedes Dokument per KI in einfacher Sprache und erinnert dich an Fristen. 3 Analysen im Monat gratis. Android-App bei Google Play, für iPhone und iPad bald. Pro 3,99 € im Monat.
+
+Sachliche Kurzinfo für Sprachmodelle und Suchdienste. Maßgeblich sind die Angaben auf https://dokudex.dexware.app/. Anbieter: Dexware (https://dexware.app/), Kontakt: support@dexware.app.
+
+## Was DokuDex macht
+
+- Dokumente scannen: Mit der Kamera fotografieren oder aus der Galerie wählen.
+- KI erklärt alles: Was es ist, was wichtig ist und was du tun musst, in einfacher Sprache. Dazu nennt die KI den Dokumenttyp, Fristen mit Datum und was du jetzt tun solltest.
+- Fristen & Erinnerungen: Fristen und Termine werden erkannt, du wirst rechtzeitig erinnert.
+- Chat mit Dokument: „Wann kann ich kündigen?" — stell Fragen und bekomm eine klare Antwort.
+- Dokumente vergleichen: Unterschiede, Gemeinsamkeiten und eine klare Empfehlung.
+- Archiv & Projekte: In Projekte sortieren, nach Typ filtern und alles über die Suche finden.
+
+## Am PC im Dexware-Dashboard
+
+Scannen und auswerten läuft in der App. Im Dexware-Dashboard am Computer findest du jedes Dokument wieder und liest die Auswertung in Ruhe.
+
+- Suchen und filtern: Nach Titel, Zusammenfassung und Dokumenttyp, gefiltert nach Typ und Projekt.
+- KI-Auswertung lesen: Zusammenfassung, das Wichtigste, Fristen, „Was tun?“ und Empfehlung je Dokument.
+- Fristen im Blick: Die Übersicht zeigt, welche Dokumente Fristen haben, mit den Terminen daneben.
+- Projekte als Ordner: Dokumente gruppieren, zum Beispiel „Umzug“ oder „Steuer“.
+
+## Preise
+
+- Gratis (für immer): 3 KI-Analysen pro Monat; Scannen, Archiv & Projekte; Chat, Vergleich & PDF-Export; Fristen-Erinnerungen & Vorlesen; Cloud-Backup mit Konto
+- Pro: 3,99 € im Monat (jederzeit kündbar). Enthält: KI-Analysen ohne Monatslimit; Alles aus Free inklusive; Unterstützt die Weiterentwicklung von DokuDex
+- Preise inkl. MwSt., Abo jederzeit kündbar.
+
+## Kurz beantwortet
+
+- Welche Dokumente versteht DokuDex? Verträge, Rechnungen, Arztbriefe, Bescheide und Behördenpost — alles, was du fotografieren kannst. Die KI nennt den Dokumenttyp, erkennt Fristen mit Datum und fasst den Inhalt zusammen.
+- Erinnert mich DokuDex an Fristen? Ja. Erkennt die KI eine Frist mit Datum, etwa die Fälligkeit einer Rechnung, fragt DokuDex, ob du drei Tage vorher erinnert werden willst.
+- Wie lange muss ich Rechnungen und Geschäftsunterlagen aufbewahren? In Deutschland je nach Art 10, 8 oder 6 Jahre: Handelsbücher und Jahresabschlüsse 10, Rechnungen und Buchungsbelege 8, Geschäftsbriefe 6 Jahre, jeweils ab Ende des Kalenderjahres.
+- Kann ich mein Archiv auch am Computer durchsuchen? Ja, im Dexware-Dashboard: Archiv, KI-Analysen und Fristen im Browser.
+- Wo werden meine Dokumente gespeichert? Ohne Konto bleiben deine Dokumente auf dem Gerät. Mit Konto werden sie zusätzlich gesichert, nachzulesen in der Datenschutzerklärung.
+- Ersetzt DokuDex eine Rechts- oder Steuerberatung? Nein. DokuDex erklärt verständlich, was in einem Dokument steht und was zu tun ist. Bei rechtlichen oder steuerlichen Entscheidungen hilft das beim Einordnen, die Beratung ersetzt es nicht.
+- Alle Antworten: https://dokudex.dexware.app/#faq
+
+## Seiten
+
+- [Startseite](https://dokudex.dexware.app/): Funktionen, Preise, häufige Fragen
+- [Preise](https://dokudex.dexware.app/#preise): Gratis und Pro
+- [Häufige Fragen](https://dokudex.dexware.app/#faq)
+- [Dexware-Dashboard](https://dashboard.dexware.app/app/dokudex): am PC im Browser, mit demselben Konto
+- [Google Play](https://play.google.com/store/apps/details?id=com.archio.app): Android-App
+- [Dexware](https://dexware.app/): alle Apps von Dexware
+
+## Ratgeber
+
+- [Aufbewahrungsfristen für Geschäftsunterlagen](https://dokudex.dexware.app/ratgeber-aufbewahrungsfristen.html): Aufbewahrungsfristen für Geschäftsunterlagen verständlich erklärt: 10, 8 und 6 Jahre im Überblick, wann die Frist beginnt, was sich durch das Vierte Bürokratieentlastungsgesetz geändert hat — mit Tabelle und Antworten auf häufige Fragen.
+
+## Rechtliches
+
+- [Impressum](https://dokudex.dexware.app/impressum.html)
+- [Datenschutz](https://dokudex.dexware.app/datenschutz.html)
+- [AGB](https://dokudex.dexware.app/agb.html)
