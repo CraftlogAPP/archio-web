@@ -1,6 +1,6 @@
 # DokuDex
 
-> DokuDex ist eine App von Dexware. Behördenpost oder Vertrag unklar? DokuDex erklärt jedes Dokument per KI in einfacher Sprache und erinnert dich an Fristen. 3 Analysen im Monat gratis. Android-App bei Google Play, für iPhone und iPad bald. Pro 3,99 € im Monat.
+> DokuDex ist eine App von Dexware. Behördenpost oder Vertrag unklar? DokuDex erklärt jedes Dokument per KI in einfacher Sprache und erinnert dich an Fristen. 3 Analysen im Monat gratis. Android-App bei Google Play, für iPhone und iPad bald. Pro 3,99 € im Monat oder 29,99 € im Jahr.
 
 Sachliche Kurzinfo für Sprachmodelle und Suchdienste. Maßgeblich sind die Angaben auf https://dokudex.dexware.app/. Anbieter: Dexware (https://dexware.app/), Kontakt: support@dexware.app.
 
@@ -25,7 +25,7 @@ Scannen und auswerten läuft in der App. Im Dexware-Dashboard am Computer findes
 ## Preise
 
 - Gratis (für immer): 3 KI-Analysen pro Monat; Scannen, Archiv & Projekte; Chat, Vergleich & PDF-Export; Fristen-Erinnerungen & Vorlesen; Cloud-Backup mit Konto
-- Pro: 3,99 € im Monat (jederzeit kündbar). Enthält: KI-Analysen ohne Monatslimit; Alles aus Free inklusive; Unterstützt die Weiterentwicklung von DokuDex
+- Pro: 3,99 € im Monat oder 29,99 € im Jahr. Enthält: KI-Analysen ohne Monatslimit; Alles aus Free inklusive; Unterstützt die Weiterentwicklung von DokuDex
 - Preise inkl. MwSt., Abo jederzeit kündbar.
 
 ## Kurz beantwortet
