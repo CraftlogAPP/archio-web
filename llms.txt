@@ -49,7 +49,7 @@ Scannen und auswerten läuft in der App. Im Dexware-Dashboard am Computer findes
 
 ## Ratgeber
 
-- [Aufbewahrungsfristen für Geschäftsunterlagen](https://dokudex.dexware.app/ratgeber-aufbewahrungsfristen.html): Aufbewahrungsfristen für Geschäftsunterlagen verständlich erklärt: 10, 8 und 6 Jahre im Überblick, wann die Frist beginnt, was sich durch das Vierte Bürokratieentlastungsgesetz geändert hat — mit Tabelle und Antworten auf häufige Fragen.
+- [Aufbewahrungsfristen für Geschäftsunterlagen](https://dokudex.dexware.app/ratgeber-aufbewahrungsfristen.html): Aufbewahrungsfristen für Geschäftsunterlagen: 10, 8 und 6 Jahre im Überblick, wann die Frist beginnt und was das Vierte Bürokratieentlastungsgesetz ändert.
 
 ## Rechtliches
 
